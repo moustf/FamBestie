@@ -10,7 +10,7 @@ const {
   SECRET_KEY: secretKey,
 } = process.env;
 
-export {
+export const baseConfig = {
   nodeEnv,
   dbDev,
   dbTest,
