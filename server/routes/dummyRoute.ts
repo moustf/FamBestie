@@ -1,8 +1,6 @@
 import { Router } from 'express';
-import dummyController from '../controllers';
+import { dummyController } from '../controllers/dummyController';
 
-const dummyRouter = Router();
+export const dummyRouter = Router();
 
 dummyRouter.get('/dummy', dummyController);
-
-export default dummyRouter;

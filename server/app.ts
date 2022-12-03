@@ -4,9 +4,9 @@ import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 
-import router from './routes';
+import { router } from './routes';
 
-const app = express();
+export const app = express();
 
 app.use(compression());
 app.use(cookieParser());
@@ -20,5 +20,3 @@ app.disable('x-powered-by');
 app.set('port', process.env.PORT || 8080);
 
 app.use('/api/v1', router);
-
-export default app;
