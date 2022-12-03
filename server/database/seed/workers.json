@@ -1,0 +1,122 @@
+[
+  {
+    "name": "Qassem Hammam",
+    "email": "qassem@gmail.com",
+    "gender": "male",
+    "location": "Gaza, Palestine",
+    "phone": "0591234567",
+    "date_of_birth": "1997-09-23",
+    "state": "hired",
+    "specialty": "Driver",
+    "years_of_experience": "2",
+    "hiring_date": "2022-11-16"
+  },
+  {
+    "name": "Salma Ashour",
+    "email": "salma@gmail.com",
+    "gender": "female",
+    "location": "Rafah, Palestine",
+    "phone": "0591234567",
+    "date_of_birth": "1992-04-15",
+    "state": "hired",
+    "specialty": "Housekeeper",
+    "years_of_experience": "1",
+    "hiring_date": "2021-12-20"
+  },
+  {
+    "name": "Nour Bader",
+    "email": "salma@gmail.com",
+    "gender": "female",
+    "location": "Khanyonus, Palestine",
+    "phone": "0591234567",
+    "date_of_birth": "2001-06-22",
+    "state": "hired",
+    "specialty": "Babysitter",
+    "years_of_experience": "3",
+    "hiring_date": "2022-11-16"
+  },
+  {
+    "name": "Haya Tayseer",
+    "email": "haya@gmail.com",
+    "gender": "female",
+    "location": "Nusairat, Palestine",
+    "phone": "0591234567",
+    "date_of_birth": "1998-03-20",
+    "state": "hired",
+    "specialty": "Trainer",
+    "years_of_experience": "2",
+    "hiring_date": "2020-09-13"
+  },
+  {
+    "name": "Ayman Mohsen",
+    "email": "ayman@gmail.com",
+    "gender": "male",
+    "location": "Nablus, Palestine",
+    "phone": "0591234567",
+    "date_of_birth": "1997-01-20",
+    "state": "hired",
+    "specialty": "Guard",
+    "years_of_experience": "2",
+    "hiring_date": "2020-09-13"
+  },
+  {
+    "name": "Qassem Hammam",
+    "email": "qassem@gmail.com",
+    "gender": "male",
+    "location": "Gaza, Palestine",
+    "phone": "0591234567",
+    "date_of_birth": "1997-09-23",
+    "state": "unemployed",
+    "specialty": "Driver",
+    "years_of_experience": "2",
+    "hiring_date": "2022-11-16"
+  },
+  {
+    "name": "Salma Ashour",
+    "email": "salma@gmail.com",
+    "gender": "female",
+    "location": "Rafah, Palestine",
+    "phone": "0591234567",
+    "date_of_birth": "1992-04-15",
+    "state": "unemployed",
+    "specialty": "Housekeeper",
+    "years_of_experience": "1",
+    "hiring_date": "2021-12-20"
+  },
+  {
+    "name": "Nour Bader",
+    "email": "salma@gmail.com",
+    "gender": "female",
+    "location": "Khanyonus, Palestine",
+    "phone": "0591234567",
+    "date_of_birth": "2001-06-22",
+    "state": "unemployed",
+    "specialty": "Babysitter",
+    "years_of_experience": "3",
+    "hiring_date": "2022-11-16"
+  },
+  {
+    "name": "Haya Tayseer",
+    "email": "haya@gmail.com",
+    "gender": "female",
+    "location": "Nusairat, Palestine",
+    "phone": "0591234567",
+    "date_of_birth": "1998-03-20",
+    "state": "unemployed",
+    "specialty": "Trainer",
+    "years_of_experience": "2",
+    "hiring_date": "2020-09-13"
+  },
+  {
+    "name": "Ayman Mohsen",
+    "email": "ayman@gmail.com",
+    "gender": "male",
+    "location": "Nablus, Palestine",
+    "phone": "0591234567",
+    "date_of_birth": "1997-01-20",
+    "state": "unemployed",
+    "specialty": "Guard",
+    "years_of_experience": "2",
+    "hiring_date": "2020-09-13"
+  }
+]

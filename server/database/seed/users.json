@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Sameer Rami",
+    "email": "sameer@gmail.com",
+    "password": "$2a$12$vCXXt3KjzlJ0HMdRrWIFh.7nsUuDkG32ruVbtSN6Uu.xCyeI1BnhK",
+    "location": "Gaza, Palestine",
+    "phone": "0591234567",
+    "role": "admin",
+    "visibility": true
+  },
+  {
+    "name": "Hani Ibrahim",
+    "email": "hani@gmail.com",
+    "password": "$2a$12$kfEU2skhej8HtBByewpBZ.gRUSUXrOM9cLz/uBbYT/RzC6SvHPlBS",
+    "location": "North of Gaza, Palestine",
+    "phone": "0591234567",
+    "role": "client",
+    "visibility": true
+  },
+  {
+    "name": "Sami Imam",
+    "email": "sami@gmail.com",
+    "password": "$2a$12$kfEU2skhej8HtBByewpBZ.gRUSUXrOM9cLz/uBbYT/RzC6SvHPlBS",
+    "location": "Rafah, Palestine",
+    "phone": "0591234567",
+    "role": "client",
+    "visibility": true
+  },
+  {
+    "name": "Kamal Hassan",
+    "email": "kamal@gmail.com",
+    "password": "$2a$12$kfEU2skhej8HtBByewpBZ.gRUSUXrOM9cLz/uBbYT/RzC6SvHPlBS",
+    "location": "Beit-Hanoun, Palestine",
+    "phone": "0591234567",
+    "role": "client",
+    "visibility": true
+  },
+  {
+    "name": "Tamara Issam",
+    "email": "tamara@gmail.com",
+    "password": "$2a$12$kfEU2skhej8HtBByewpBZ.gRUSUXrOM9cLz/uBbYT/RzC6SvHPlBS",
+    "location": "Hebron, Palestine",
+    "phone": "059987654",
+    "role": "client",
+    "visibility": true
+  },
+  {
+    "name": "Tasneem Salem",
+    "email": "tasneem@gmail.com",
+    "password": "$2a$12$kfEU2skhej8HtBByewpBZ.gRUSUXrOM9cLz/uBbYT/RzC6SvHPlBS",
+    "location": "Nablus, Palestine",
+    "phone": "059987654",
+    "role": "client",
+    "visibility": true
+  }
+]

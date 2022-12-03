@@ -1,0 +1,43 @@
+[
+  {
+    "title": "Personal Driver",
+    "details": "I need a personal driver to help me with my family's transportation. The driver needs to have a license and have some sort of experience in diving.",
+    "stars": null,
+    "review_text": null,
+    "working_hours": "full-time",
+    "bill": null
+  },
+  {
+    "title": "Housekeeper",
+    "details": "I need a housekeeper to help my mother in the house. The housekeeper needs to have 2 years of experience at least.",
+    "stars": null,
+    "review_text": null,
+    "working_hours": "full-time",
+    "bill": null
+  },
+  {
+    "title": "Trainer",
+    "details": "I need a personal trainer to help me with my fitness workouts. The trainer needs to have a license and have some sort of experience in training.",
+    "stars": null,
+    "review_text": null,
+    "working_hours": "2 hours, for 3 days a week",
+    "bill": null
+  },
+  {
+    "title": "Babysitter",
+    "details": "I need a babysitter to take care of my child while I'm out. The babysitter needs to have a license and have some sort of experience in dealing with children, and should be patient and kind.",
+    "stars": null,
+    "review_text": null,
+    "working_hours": "part-time",
+    "bill": null
+  },
+  {
+    "user_id": 5,
+    "title": "Guard",
+    "details": "I need a guard to look after my building which still under construction during the night. The guard should be honest and sincere, and have a strong body to stop thieves.",
+    "stars": null,
+    "review_text": null,
+    "working_hours": "full-time",
+    "bill": null
+  }
+]
