@@ -5,6 +5,8 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 
 import { router } from './routes';
+import { notFoundController } from './controllers/error_handling/404';
+import { serverErrorController } from './controllers/error_handling/500';
 
 export const app = express();
 
@@ -20,3 +22,6 @@ app.disable('x-powered-by');
 app.set('port', process.env.PORT || 8080);
 
 app.use('/api/v1', router);
+
+app.use(notFoundController);
+app.use(serverErrorController);
