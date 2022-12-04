@@ -25,9 +25,9 @@ jobs:
         image: postgres:13-alpine
         # Provide the password for postgres
         env:
-          POSTGRES_PASSWORD: 12345
-          POSTGRES_USER: fambestie
-          POSTGRES_DB: fambestie
+          POSTGRES_PASSWORD: root
+          POSTGRES_USER: fambestie_test_user
+          POSTGRES_DB: fambestie_test
 
         # Set health checks to wait until postgres has started
         options: >-
@@ -57,5 +57,5 @@ jobs:
         run: npm run test
         # Environments variables.
         env:
-          DATABASE_TEST: postgres://fambestie_test_user:root@localhost:5432/fambestie_test
+          DATABASE_TEST: ${{secrets.DATABASE_URL}}
           SECRET_KEY: ${{secrets.SECRET_KEY}}
