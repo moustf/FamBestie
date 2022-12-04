@@ -19,8 +19,10 @@ export const Worker = sequelize.define('Worker', {
     type: DataTypes.STRING,
     allowNull: false,
     validate: {
-      args: [['male', 'female']],
-      msg: 'Please select either male or female!',
+      isIn: {
+        args: [['male', 'female']],
+        msg: 'Please select either male or female!',
+      },
     },
   },
   location: {
@@ -39,8 +41,10 @@ export const Worker = sequelize.define('Worker', {
     type: DataTypes.STRING,
     allowNull: false,
     validate: {
-      args: [['hired', 'unemployed']],
-      msg: 'Please select either hired or unemployed!',
+      isIn: {
+        args: [['hired', 'unemployed']],
+        msg: 'Please select either hired or unemployed!',
+      },
     },
   },
   specialty: {

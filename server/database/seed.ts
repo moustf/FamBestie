@@ -1,5 +1,5 @@
 import { models } from '../models';
-import { seedDataFiles } from './seed/index';
+import { seedDataFiles } from './seed/';
 import { baseConfig } from '../config/environments';
 import { sequelize } from './connection';
 
