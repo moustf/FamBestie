@@ -57,5 +57,5 @@ jobs:
         run: npm run test
         # Environments variables.
         env:
-          DATABASE_TEST: ${{secrets.DATABASE_TEST}}
+          DATABASE_TEST: postgres://fambestie_test_user:root@localhost:5432/fambestie_test
           SECRET_KEY: ${{secrets.SECRET_KEY}}
