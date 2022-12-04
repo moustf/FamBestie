@@ -1,7 +1,7 @@
 import Joi from 'joi';
-import { SignupSchemaInterface } from '../../interfaces/signupSchemaInterface';
+import { SignupBodyInterface } from '../../interfaces/signupBodyInterface';
 
-export const validateSignup = (body: SignupSchemaInterface) => {
+export const validateSignup = (body: SignupBodyInterface) => {
   const schema = Joi.object({
     name: Joi.string().required(),
     email: Joi.string().email().required(),

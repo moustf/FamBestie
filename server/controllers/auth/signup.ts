@@ -44,7 +44,7 @@ export const signupController = async (req: Request, res: Response, next: NextFu
     // * Returning the response, because when I have many responses depending on different logic,
     // * I can handle with return and if blocks.
     return res
-      .cookie('token', token)
+      .cookie('token', token, { httpOnly: true })
       .status(201)
       .json({ msg: 'The user have successfully created!', data: payload });
   } catch (error) {
