@@ -6,8 +6,7 @@ import { createUser } from '../../queries/auth/createUser';
 import { doesUserExist } from '../../queries/auth/doesUserExist';
 import { signToken } from '../../utils/jwt';
 import { TokenPayloadInterface } from '../../utils/interfaces/tokenPayloadInterface';
-
-// TODO: Edit the return responses when errors occur to use customized error class.
+import { CustomError } from '../../utils/custom_error';
 
 export const signupController = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
   try {
@@ -19,7 +18,7 @@ export const signupController = async (req: Request, res: Response, next: NextFu
 
     // * If the email does exist, throw an error.
     if (doesEmailExist) {
-      return res.status(400).json({ msg: 'The email does already exist!' });
+      throw new CustomError(400, 'The email does already exist!');
     }
 
     const hashedPassword = await hash(req.body.password, 12);
@@ -50,7 +49,7 @@ export const signupController = async (req: Request, res: Response, next: NextFu
       .json({ msg: 'The user have successfully created!', data: payload });
   } catch (error) {
     if (error.name === 'ValidationError') {
-      return res.status(400).json({ msg: 'The user has entered an invalid data!' });
+      next(new CustomError(400, 'The user has entered an invalid data!'));
     }
 
     next(error);

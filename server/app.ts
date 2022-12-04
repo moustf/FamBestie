@@ -18,7 +18,6 @@ app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.disable('x-powered-by');
 
-// Todo: change the port when you create the environment variables file.
 app.set('port', process.env.PORT || 8080);
 
 app.use('/api/v1', router);
