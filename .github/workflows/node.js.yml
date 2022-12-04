@@ -55,3 +55,7 @@ jobs:
         # Runs a script that creates a PostgreSQL table, populates
         # the table with data, and then retrieves the data.
         run: npm run test
+        # Environments variables.
+        env:
+          DATABASE_TEST: ${{secrets.DATABASE_TEST}}
+          SECRET_KEY: ${{secrets.SECRET_KEY}}
