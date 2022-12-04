@@ -1,10 +1,12 @@
 import { Sequelize } from 'sequelize';
-import {
+import { baseConfig } from '../config/environments';
+
+const {
   dbDev,
   dbTest,
   dbProduction,
   nodeEnv,
-} from '../config/environments';
+} = baseConfig;
 
 let connectionString: string | undefined = '';
 let ssl: boolean | object = false;
@@ -26,6 +28,6 @@ if (!connectionString) {
   throw new Error('Database url is not a valid postgres url or there is no url is given at all!');
 }
 
-const sequelize = new Sequelize(connectionString, { dialectOptions: { ssl }, logging: false });
-
-export default sequelize;
+export const sequelize = new Sequelize(connectionString, {
+  dialectOptions: { ssl }, logging: false,
+});
