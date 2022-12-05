@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { hash } from 'bcryptjs';
+// import { InferType } from 'yup';
 
 import { validateSignup } from '../../utils/validation/auth/signupValidation';
 import { createUser } from '../../queries/auth/createUser';
@@ -11,21 +12,21 @@ import { CustomError } from '../../utils/custom_error';
 export const signupController = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
   try {
     // * Signup data validation.
-    await validateSignup(req.body);
+    const signupData = await validateSignup(req.body);
 
     // * Check if the email does already exist or not.
-    const doesEmailExist = await doesUserExist(req.body.email);
+    const doesEmailExist = await doesUserExist(signupData.email);
 
     // * If the email does exist, throw an error.
     if (doesEmailExist) {
       throw new CustomError(400, 'The email does already exist!');
     }
 
-    const hashedPassword = await hash(req.body.password, 12);
+    const hashedPassword = await hash(signupData.password, 12);
 
     const userData = await createUser({
       ...{
-        ...req.body,
+        ...signupData,
         password: hashedPassword,
       },
       role: 'client',
