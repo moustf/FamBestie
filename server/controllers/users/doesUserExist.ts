@@ -5,9 +5,9 @@ import { CustomError } from '../../utils/custom_error';
 
 export const doesEmailExistController = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
   try {
-    const { email } = req.params;
+    const { email } = req.query;
 
-    const doesEmailExist = await doesUserExist(email);
+    const doesEmailExist = await doesUserExist(email as string);
 
     if (doesEmailExist?.getDataValue('id')) {
       throw new CustomError(302, 'The user does already exist!');

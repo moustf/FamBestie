@@ -4,4 +4,4 @@ import { doesEmailExistController } from '../controllers/users/doesUserExist';
 
 export const usersRouter = Router();
 
-usersRouter.get('/check/:email', doesEmailExistController);
+usersRouter.get('/check', doesEmailExistController);
