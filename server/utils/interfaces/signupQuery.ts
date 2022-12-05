@@ -1,13 +1,10 @@
-export interface SignupBodyInterface {
+export interface SignupQuery {
   name: string,
   email: string,
   password: string,
   passwordConfirmation: string | unknown,
   location: string,
   phone: string,
-}
-
-export interface SignupQueryInterface extends SignupBodyInterface {
   role: string,
   visibility: boolean,
 }

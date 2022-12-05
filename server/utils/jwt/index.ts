@@ -1,11 +1,11 @@
 import { sign, verify, Secret } from 'jsonwebtoken';
 
 import { baseConfig } from '../../config/environments';
-import { TokenPayloadInterface } from '../interfaces/tokenPayloadInterface';
+import { TokenPayload } from '../interfaces/tokenPayload';
 
 const { secretKey } = baseConfig;
 
-export const signToken = (payload: TokenPayloadInterface) => new Promise((resolve, reject) => {
+export const signToken = (payload: TokenPayload) => new Promise((resolve, reject) => {
   sign(payload, secretKey as Secret, (err, token) => {
     if (err) {
       reject(err);

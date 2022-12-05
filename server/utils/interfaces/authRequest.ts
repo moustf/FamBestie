@@ -1,6 +1,6 @@
 import { Request } from 'express';
 
-export interface AuthRequestInterface extends Request {
+export interface AuthRequest extends Request {
   user: {
     id: number,
     name: string,
