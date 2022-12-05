@@ -50,6 +50,12 @@ export const Worker = sequelize.define('Worker', {
   specialty: {
     type: DataTypes.STRING,
     allowNull: false,
+    validate: {
+      isIn: {
+        args: [['Driver', 'Housekeeper', 'Babysitter', 'Trainer', 'Guard']],
+        msg: 'Please select a valid specialty!',
+      },
+    },
   },
   years_of_experience: {
     type: DataTypes.INTEGER,
