@@ -1,4 +1,4 @@
-export interface SignupSchemaInterface {
+export interface SignupBodyInterface {
   name: string,
   email: string,
   password: string,
