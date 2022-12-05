@@ -8,9 +8,9 @@ import { signToken } from '../../utils/jwt';
 
 export const loginController = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
   try {
-    await validateLogin(req.body);
+    const loginData = await validateLogin(req.body);
 
-    const userData = await checkUserLogin(req.body.email);
+    const userData = await checkUserLogin(loginData.email);
     const id = userData?.getDataValue('id');
     const name = userData?.getDataValue('name');
     const role = userData?.getDataValue('role');

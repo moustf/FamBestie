@@ -92,7 +92,7 @@ describe('Testing login route', () => {
       .expect(400)
       .end((err, res) => {
         if (err) return done(err);
-        expect(res.body.message).not.toBe('Invalid email or password!');
+        expect(res.body.msg).toBe('Invalid email or password!');
         return done();
       });
   });
