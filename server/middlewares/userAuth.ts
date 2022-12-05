@@ -13,8 +13,8 @@ export const userAuthController = async (req: AuthRequestInterface, res: Respons
       throw new CustomError(400, 'Unauthenticated!');
     }
 
-    const userData: UserAuthDataInterface = await verifyToken(token) as UserAuthDataInterface;
-    req.userData = userData;
+    const user: UserAuthDataInterface = await verifyToken(token) as UserAuthDataInterface;
+    req.user = user;
     next();
   } catch (error) {
     next(error);
