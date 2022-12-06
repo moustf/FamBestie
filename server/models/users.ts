@@ -32,7 +32,7 @@ export const User = sequelize.define('User', {
     allowNull: false,
     validate: {
       isIn: {
-        args: [['admin', 'client', 'worker']],
+        args: [['admin', 'client']],
         msg: 'Must be either admin, client, or worker',
       },
     },

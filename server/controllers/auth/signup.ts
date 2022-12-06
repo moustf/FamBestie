@@ -1,18 +1,16 @@
 import { Request, Response, NextFunction } from 'express';
 import { hash } from 'bcryptjs';
-// import { InferType } from 'yup';
-
-import { validateSignup } from '../../utils/validation/auth/signupValidation';
+import { signupSchema } from '../../utils/validation/auth/signupValidation';
 import { createUser } from '../../queries/auth/createUser';
 import { doesUserExist } from '../../queries/auth/doesUserExist';
 import { signToken } from '../../utils/jwt';
-import { TokenPayloadInterface } from '../../utils/interfaces/tokenPayloadInterface';
+import { TokenPayload } from '../../utils/interfaces/tokenPayload';
 import { CustomError } from '../../utils/custom_error';
 
 export const signupController = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
   try {
     // * Signup data validation.
-    const signupData = await validateSignup(req.body);
+    const signupData = await signupSchema.validate(req.body);
 
     // * Check if the email does already exist or not.
     const doesEmailExist = await doesUserExist(signupData.email);
@@ -33,7 +31,7 @@ export const signupController = async (req: Request, res: Response, next: NextFu
       visibility: true,
     });
 
-    const payload: TokenPayloadInterface = {
+    const payload: TokenPayload = {
       id: userData.getDataValue('id'),
       name: userData.getDataValue('name'),
       role: 'client',

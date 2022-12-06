@@ -2,13 +2,13 @@ import { Request, Response, NextFunction } from 'express';
 import { compare } from 'bcryptjs';
 
 import { checkUserLogin } from '../../queries/auth/checkUserLogin';
-import { validateLogin } from '../../utils/validation/auth/loginValidation';
+import { loginSchema } from '../../utils/validation/auth/loginValidation';
 import { CustomError } from '../../utils/custom_error';
 import { signToken } from '../../utils/jwt';
 
 export const loginController = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
   try {
-    const loginData = await validateLogin(req.body);
+    const loginData = await loginSchema.validate(req.body);
 
     const userData = await checkUserLogin(loginData.email);
     const id = userData?.getDataValue('id');

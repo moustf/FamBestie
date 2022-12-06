@@ -1,13 +1,13 @@
 import { Response, NextFunction } from 'express';
 
-import { AuthRequestInterface } from '../utils/interfaces/authRequestInterface';
+import { AuthRequest } from '../utils/interfaces/authRequest';
 import { CustomError } from '../utils/custom_error';
 
-export const clientAuthController = (req: AuthRequestInterface, res: Response, next: NextFunction): void => {
+export const roleAuth = (role: 'admin' | 'client') => (req: AuthRequest, res: Response, next: NextFunction) => {
   try {
     const { user } = req;
 
-    if (user?.role === 'client') {
+    if (user?.role === role) {
       next();
     } else {
       throw new CustomError(401, 'Unauthorized!');

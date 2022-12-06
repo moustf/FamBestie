@@ -1,4 +1,4 @@
 import { User } from '../../models/users';
-import { SignupQueryInterface } from '../../utils/interfaces/signupBodyInterface';
+import { SignupQuery } from '../../utils/interfaces/signupQuery';
 
-export const createUser = (body: SignupQueryInterface) => User.create({ ...body });
+export const createUser = (body: SignupQuery) => User.create({ ...body });

@@ -17,6 +17,7 @@ export const Job = sequelize.define('Job', {
   },
   stars: {
     type: DataTypes.INTEGER,
+    defaultValue: 0,
   },
   review_text: {
     type: DataTypes.TEXT,
