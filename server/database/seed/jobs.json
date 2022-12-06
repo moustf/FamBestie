@@ -32,7 +32,14 @@
     "bill": null
   },
   {
-    "user_id": 5,
+    "title": "Guard",
+    "details": "I need a guard to look after my building which still under construction during the night. The guard should be honest and sincere, and have a strong body to stop thieves.",
+    "stars": null,
+    "review_text": null,
+    "working_hours": "full-time",
+    "bill": null
+  },
+  {
     "title": "Guard",
     "details": "I need a guard to look after my building which still under construction during the night. The guard should be honest and sincere, and have a strong body to stop thieves.",
     "stars": null,
