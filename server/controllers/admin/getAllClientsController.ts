@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 
 import { getAllClientsQuery } from '../../queries/admin/getAllClientsQuery';
 
-export const getAllClientsController = async (req: Request, res: Response, next: NextFunction): Promise<ReturnType<any>> => {
+export const getAllClientsController = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const clients = await getAllClientsQuery();
 
