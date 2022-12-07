@@ -5,7 +5,7 @@ import { doesWorkerExistQuery } from '../../queries/worker/doesWorkerExist';
 import { registerWorkerSchema } from '../../utils/validation/admin/registerWorkerValidation';
 import { CustomError } from '../../utils/custom_error';
 
-export const registerWorkerController = async (req: Request, res: Response, next: NextFunction): Promise<ReturnType<any>> => {
+export const registerWorkerController = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const {
       name,
