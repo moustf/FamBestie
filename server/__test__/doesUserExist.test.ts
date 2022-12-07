@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-// eslint-disable-next-line no-undef
 import supertest from 'supertest';
 
 import { app } from '../app';
@@ -28,9 +26,10 @@ describe('Testing doesEmailExist route', () => {
       });
   });
 
-  it('In the success case, the route should return a message that tells that the user does not exist.', (done) => {
+  it('In the success case, the route should return a message that tells that the user does not exist with status code.', (done) => {
     supertest(app)
       .get('/api/v1/user/check?email=sayed@gmail.com')
+      .expect(202)
       .end((err, res) => {
         if (err) return done(err);
         expect(res.body.msg).toBe('The user does not exist, you can create an account!');
@@ -38,9 +37,9 @@ describe('Testing doesEmailExist route', () => {
       });
   });
 
-  it('In the failure case, the route should return 404, not found status code.', (done) => {
+  it('In the failure case, the route should return 302, found status code.', (done) => {
     supertest(app)
-      .get('/api/v1/user/check?email=sameer@gmail.com')
+      .get('/api/v1/user/check?email=mustafa@gmail.com')
       .end((err, res) => {
         if (err) return done(err);
         expect(res.status).toBe(302);
@@ -50,7 +49,7 @@ describe('Testing doesEmailExist route', () => {
 
   it('In the success case, the route should return a message that tells that the user does already exist.', (done) => {
     supertest(app)
-      .get('/api/v1/user/check?email=sameer@gmail.com')
+      .get('/api/v1/user/check?email=mustafa@gmail.com')
       .end((err, res) => {
         if (err) return done(err);
         expect(res.body.msg).toBe('The user does already exist!');
