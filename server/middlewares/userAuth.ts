@@ -1,11 +1,10 @@
 import { Response, NextFunction } from 'express';
 
-import { AuthRequest } from '../utils/interfaces/authRequest';
 import { UserAuthData } from '../utils/interfaces/userAuthData';
 import { verifyToken } from '../utils/jwt';
 import { CustomError } from '../utils/custom_error';
 
-export const userAuthController = async (req: AuthRequest, res: Response, next: NextFunction): Promise<any> => {
+export const userAuth = async (req: any, res: Response, next: NextFunction): Promise<any> => {
   try {
     const { token } = req.cookies;
 
