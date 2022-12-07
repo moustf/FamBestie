@@ -5,7 +5,8 @@
     "node": true
   },
   "extends": [
-    "eslint-config-airbnb"
+    "eslint-config-airbnb",
+    "plugin:jest/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -20,6 +21,7 @@
     "import/prefer-default-export": "off",
     "import/no-default-export": "error",
     "consistent-return": "off",
+    "jest/no-done-callback": "off",
     "max-len": ["error", { "code": 135 }],
     "import/extensions": [
       "error",
