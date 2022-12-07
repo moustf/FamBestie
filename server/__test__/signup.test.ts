@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-// eslint-disable-next-line no-undef
 import supertest from 'supertest';
 
 import { app } from '../app';
