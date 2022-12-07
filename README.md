@@ -1,2 +1,2 @@
 # FamBestie
-The project is a blog post platform. This project is for coding a template from figma community. 
+A website that provides clients with “family help” workers to enhance their lives quality, help them with their routine tasks.
