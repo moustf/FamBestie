@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 
 import { getAllJobsQuery } from '../../queries/admin/getAllJobsQuery';
 
-export const getAllJobsController = async (req: Request, res: Response, next: NextFunction): Promise<ReturnType<any>> => {
+export const getAllJobsController = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const jobs = await getAllJobsQuery();
 
