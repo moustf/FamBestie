@@ -3,7 +3,7 @@ import { Request, Response, NextFunction } from 'express';
 import { getWorkerByIdQuery } from '../../queries/admin/getWorkerByIdQuery';
 import { CustomError } from '../../utils/custom_error';
 
-export const getWorkerByIdController = async (req: Request, res: Response, next: NextFunction): Promise<ReturnType<any>> => {
+export const getWorkerByIdController = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { id } = req.params;
 
