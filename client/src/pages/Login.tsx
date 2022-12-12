@@ -11,7 +11,6 @@ import {
   Button,
   Typography,
   Link,
-  useMediaQuery,
   Alert,
 } from '@mui/material';
 import LoginIcon from '@mui/icons-material/Login';
@@ -20,12 +19,11 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { SideImage } from '../components/SideImage';
 import { loginSchema } from '../utils/validation/loginData';
 import { InputFiled } from '../components/InputField';
+import { styles } from './styles';
 
 const theme = createTheme();
 
 export const Login: FC = () => {
-  // ? This is the breakpoint I use to custom the theme for mobile design.
-  const matchesMD = useMediaQuery(theme.breakpoints.up('md'));
   // ? This is the mutation function which makes the backend fetch and saves the data in its cache.
   const {
     mutate,
@@ -51,32 +49,15 @@ export const Login: FC = () => {
       <Container
         component="main"
         maxWidth={false}
-        sx={{
-          p: '0 !important',
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          justifyContent: matchesMD ? 'space-between' : 'center',
-          alignItems: 'center',
-        }}
+        sx={styles.mainContainer}
+        style={{ padding: 0 }}
       >
         <CssBaseline />
         <Box
-          sx={{
-            width: '60%',
-            height: '100%',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: '1.2rem',
-            pt: '10rem',
-          }}
+          sx={styles.box}
         >
-          <Avatar sx={{
-            width: 80, height: 80, m: 1, bgcolor: 'primary.main',
-          }}
-          >
-            <LoginIcon sx={{ fontSize: 'xx-large' }} />
+          <Avatar sx={styles.avatar}>
+            <LoginIcon sx={styles.loginIcon} />
           </Avatar>
           <Typography component="h1" variant="h2">
             Sign in
@@ -85,12 +66,7 @@ export const Login: FC = () => {
             maxWidth={false}
             component="form"
             onSubmit={handleSubmit(onSubmit)}
-            sx={{
-              width: matchesMD ? '60%' : '100%',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '0.8rem',
-            }}
+            sx={styles.formContainer}
           >
             <InputFiled
               fieldName="email"
@@ -115,11 +91,16 @@ export const Login: FC = () => {
               type="submit"
               variant="contained"
               fullWidth
-              sx={{ mt: 2, height: '3rem' }}
+              sx={styles.submitButton}
             >
               Log In
             </Button>
-            <Typography variant="body1" color="text.secondary" align="center" sx={{ mt: matchesMD ? 3 : 5 }}>
+            <Typography
+              variant="body1"
+              color="text.secondary"
+              align="center"
+              sx={styles.firstTypography}
+            >
               You don&#39;t have an account?
               {' '}
               <Button variant="text">
@@ -127,10 +108,21 @@ export const Login: FC = () => {
               </Button>
               Now.
             </Typography>
-            <Typography variant="body2" color="text.secondary" align="center" sx={{ mt: matchesMD ? '11%' : 6 }}>
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              align="center"
+              sx={styles.secondTypography}
+            >
               All Rights Reserver Copyright ©
               {' '}
-              <Link color="inherit" href="https://github.com/moustf" target="_blank">Mustafa Salem</Link>
+              <Link
+                color="inherit"
+                href="https://github.com/moustf"
+                target="_blank"
+              >
+                Mustafa Salem
+              </Link>
               {' '}
               {new Date().getFullYear()}
               {' '}
@@ -138,7 +130,7 @@ export const Login: FC = () => {
             </Typography>
           </Container>
         </Box>
-        {matchesMD && <SideImage />}
+        <SideImage />
       </Container>
     </ThemeProvider>
   );
