@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Controller } from 'react-hook-form';
-import Input from '@mui/material/Input';
+import TextField from '@mui/material/TextField';
 
 import { InputFieldInterface } from '../utils/interfaces/inputField';
 
@@ -11,7 +11,11 @@ export const InputFiled: FC<InputFieldInterface> = ({
     name={fieldName}
     control={control}
     render={({ field: { onChange, onBlur, name } }) => (
-      <Input
+      <TextField
+        margin="normal"
+        required
+        fullWidth
+        label={name}
         type={type}
         name={name}
         placeholder={placeholder}
