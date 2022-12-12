@@ -1,0 +1,37 @@
+export const styles = {
+  mainContainer: {
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    justifyContent: { xs: 'center', sm: 'center', md: 'space-between' },
+    alignItems: 'center',
+  },
+  box: {
+    sm: '100px',
+    lg: '200px',
+    width: '60%',
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: '1.2rem',
+    pt: '10rem',
+  },
+  avatar: {
+    width: 80,
+    height: 80,
+    m: 1,
+    bgcolor: 'primary.main',
+    justifyContent: { md: 'center' },
+  },
+  formContainer: {
+    width: { xs: '100%', sm: '100%', md: '60%' },
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '0.8rem',
+  },
+  loginIcon: { fontSize: 'xx-large' },
+  submitButton: { mt: 2, height: '3rem' },
+  firstTypography: { mt: { xs: 2, sm: 3, md: 5 } },
+  secondTypography: { mt: { xs: 5, sm: 6, md: 12 } },
+};
