@@ -1,5 +1,6 @@
 {
   "name": "FamBestie",
+  "proxy": "http://localhost:8080/api/v1",
   "version": "1.0.0",
   "description": "The project is a blog post platform. This project is for coding a template from figma community.",
   "main": "index.js",
