@@ -16,5 +16,8 @@ export const TempNavigator = (): React.ReactElement => (
     <strong style={{ color: 'primary.dark', fontSize: '1.5rem' }}>
       <Link to="/login">Go to login</Link>
     </strong>
+    <strong style={{ color: 'primary.dark', fontSize: '1.5rem' }}>
+      <Link to="/signup">Go to signup</Link>
+    </strong>
   </section>
 );

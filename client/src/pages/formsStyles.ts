@@ -30,7 +30,7 @@ export const styles = {
     flexDirection: 'column',
     gap: '0.8rem',
   },
-  loginIcon: { fontSize: 'xx-large' },
+  icon: { fontSize: 'xx-large' },
   submitButton: { mt: 2, height: '3rem' },
   firstTypography: { mt: { xs: 2, sm: 3, md: 5 } },
   secondTypography: { mt: { xs: 5, sm: 6, md: 12 } },

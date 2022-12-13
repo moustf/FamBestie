@@ -2,9 +2,9 @@ import { FC } from 'react';
 import { Controller } from 'react-hook-form';
 import TextField from '@mui/material/TextField';
 
-import { InputFieldInterface } from '../utils/interfaces/inputField';
+// import { InputFieldInterface } from '../utils/interfaces/inputField';
 
-export const InputFiled: FC<InputFieldInterface> = ({
+export const InputFiled: FC<any> = ({
   control, fieldName, type, placeholder,
 }) => (
   <Controller
