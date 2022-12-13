@@ -2,8 +2,10 @@ import { FC } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 
+import { TempNavigator } from './components/tempNavigator';
 import { Login } from './pages/Login';
 
 const theme = createTheme({
@@ -26,12 +28,21 @@ const theme = createTheme({
 const App: FC = () => {
   const queryClient = new QueryClient();
 
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <TempNavigator />,
+    },
+    {
+      path: '/login',
+      element: <Login />,
+    },
+  ]);
+
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={theme}>
-        <div className="App">
-          <Login />
-        </div>
+        <RouterProvider router={router} />
       </ThemeProvider>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
