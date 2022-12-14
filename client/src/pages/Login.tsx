@@ -25,7 +25,6 @@ export const Login: FC = () => {
   const {
     mutate,
   } = useMutation({
-    mutationKey: ['login'],
     mutationFn: (inputs) => (
       axios.post('/auth/login', inputs)
     ),
@@ -101,7 +100,7 @@ export const Login: FC = () => {
             You don&#39;t have an account?
             {' '}
             <Button variant="text">
-              <Link color="inherit" href="/signup" target="_blank">Sign Up</Link>
+              <Link color="inherit" href="/signup">Sign Up</Link>
             </Button>
             Now.
           </Typography>
