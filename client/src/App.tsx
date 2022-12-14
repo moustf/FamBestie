@@ -47,7 +47,9 @@ const App: FC = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={theme}>
-        <RouterProvider router={router} />
+        <div className="App">
+          <RouterProvider router={router} />
+        </div>
       </ThemeProvider>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
