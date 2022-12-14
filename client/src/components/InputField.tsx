@@ -2,9 +2,9 @@ import { FC } from 'react';
 import { Controller } from 'react-hook-form';
 import TextField from '@mui/material/TextField';
 
-// import { InputFieldInterface } from '../utils/interfaces/inputField';
+import { InputFieldInterface } from '../utils/interfaces/inputField';
 
-export const InputFiled: FC<any> = ({
+export const InputFiled: FC<InputFieldInterface> = ({
   control, fieldName, type, placeholder,
 }) => (
   <Controller
@@ -15,7 +15,7 @@ export const InputFiled: FC<any> = ({
         margin="normal"
         required
         fullWidth
-        label={name}
+        label={`${name.charAt(0).toUpperCase()}${name.substring(1)}`}
         type={type}
         name={name}
         placeholder={placeholder}
