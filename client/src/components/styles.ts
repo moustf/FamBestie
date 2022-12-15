@@ -16,4 +16,8 @@ export const styles = {
     backgroundColor: 'rgba(0, 0, 0, 0.15)',
   },
   image: { objectFit: 'fill' as 'fill' },
+  stepperContainer: {
+    width: { sx: '100%', sm: '100%', md: '60%' },
+    mt: { sx: 2, sm: 3, md: 5 },
+  },
 };

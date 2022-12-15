@@ -7,6 +7,7 @@ import {
 } from '@mui/material';
 
 import { StepperProps } from '../utils/interfaces/stepperProps';
+import { styles } from './styles';
 
 const steps = [
   'Step one',
@@ -22,7 +23,7 @@ export const CustomStepper: FC<StepperProps> = ({
   };
 
   return (
-    <Box sx={{ width: '60%', mt: 5 }}>
+    <Box sx={styles.stepperContainer}>
       <Stepper nonLinear activeStep={activeStep}>
         {
             steps.map((label, index) => (
