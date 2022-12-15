@@ -69,6 +69,7 @@ export const Login: FC = () => {
             control={control}
             type="email"
             placeholder="Enter your email address..."
+            activeStep={10}
           />
           {errors.email && <Alert variant="standard" severity="error">Invalid email address!</Alert>}
           <InputFiled
@@ -76,6 +77,7 @@ export const Login: FC = () => {
             control={control}
             type="password"
             placeholder="Enter your password..."
+            activeStep={10}
           />
           {errors.password && (
             <Alert variant="standard" severity="error">
@@ -91,40 +93,40 @@ export const Login: FC = () => {
           >
             Log In
           </Button>
-          <Typography
-            variant="body1"
-            color="text.secondary"
-            align="center"
-            sx={styles.firstTypography}
-          >
-            You don&#39;t have an account?
-            {' '}
-            <Button variant="text">
-              <Link color="inherit" href="/signup">Sign Up</Link>
-            </Button>
-            Now.
-          </Typography>
-          <Typography
-            variant="body2"
-            color="text.secondary"
-            align="center"
-            sx={styles.secondTypography}
-          >
-            All Rights Reserver Copyright ©
-            {' '}
-            <Link
-              color="inherit"
-              href="https://github.com/moustf"
-              target="_blank"
-            >
-              Mustafa Salem
-            </Link>
-            {' '}
-            {new Date().getFullYear()}
-            {' '}
-            .
-          </Typography>
         </Container>
+        <Typography
+          variant="body1"
+          color="text.secondary"
+          align="center"
+          sx={styles.firstTypography}
+        >
+          You don&#39;t have an account?
+          {' '}
+          <Button variant="text">
+            <Link color="inherit" href="/signup">Sign Up</Link>
+          </Button>
+          Now.
+        </Typography>
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          align="center"
+          sx={styles.secondTypography}
+        >
+          All Rights Reserver Copyright ©
+          {' '}
+          <Link
+            color="inherit"
+            href="https://github.com/moustf"
+            target="_blank"
+          >
+            Mustafa Salem
+          </Link>
+          {' '}
+          {new Date().getFullYear()}
+          {' '}
+          .
+        </Typography>
       </Box>
       <SideImage />
     </Container>
