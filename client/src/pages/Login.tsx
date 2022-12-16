@@ -19,8 +19,13 @@ import { SideImage } from '../components/SideImage';
 import { loginSchema } from '../utils/validation/loginData';
 import { InputFiled } from '../components/InputField';
 import { styles } from './formsStyles';
+import { useUserData } from '../hooks/useUserData';
 
 export const Login: FC = () => {
+  const { data: userData } = useUserData();
+
+  console.log(userData);
+
   // ? This is the mutation function which makes the backend fetch and saves the data in its cache.
   const {
     mutate,
