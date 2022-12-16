@@ -2,3 +2,20 @@
   width: 100%;
   height: 100vh;
 }
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #757de8;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: inherit;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #002984;
+}

@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 
 import { TempNavigator } from './components/tempNavigator';
+import { Signup } from './pages/Signup';
 import { Login } from './pages/Login';
 
 const theme = createTheme({
@@ -37,12 +38,18 @@ const App: FC = () => {
       path: '/login',
       element: <Login />,
     },
+    {
+      path: '/signup',
+      element: <Signup />,
+    },
   ]);
 
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={theme}>
-        <RouterProvider router={router} />
+        <div className="App">
+          <RouterProvider router={router} />
+        </div>
       </ThemeProvider>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

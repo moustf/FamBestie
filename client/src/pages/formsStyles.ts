@@ -15,7 +15,7 @@ export const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     gap: '1.2rem',
-    pt: '10rem',
+    pt: { xs: '5rem', sm: '5rem', md: '10rem' },
   },
   avatar: {
     width: 80,
@@ -26,12 +26,16 @@ export const styles = {
   },
   formContainer: {
     width: { xs: '100%', sm: '100%', md: '60%' },
+    minHeight: '35%',
+    overflowY: 'auto',
     display: 'flex',
     flexDirection: 'column',
     gap: '0.8rem',
   },
-  loginIcon: { fontSize: 'xx-large' },
+  icon: { fontSize: 'xx-large' },
   submitButton: { mt: 2, height: '3rem' },
   firstTypography: { mt: { xs: 2, sm: 3, md: 5 } },
+  signupFirstTypography: { mt: { xs: 1, sm: 2, md: 3 } },
   secondTypography: { mt: { xs: 5, sm: 6, md: 12 } },
+  signupSecondTypography: { mt: { xs: 3, sm: 4, md: 8 } },
 };
