@@ -6,8 +6,17 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 import { HeaderNavbar } from './NavBar';
 import { AuthButtons } from './authButtons';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { fetchUserData, selectUserData } from '../../features/auth/authSlice';
 
 export const MobileMenu: FC = () => {
+  const dispatch = useAppDispatch();
+  dispatch(fetchUserData());
+
+  const select = useAppSelector(selectUserData);
+
+  console.log(select);
+
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggleDrawer = (open: boolean) => (event: KeyboardEvent | MouseEvent) => {
@@ -41,6 +50,7 @@ export const MobileMenu: FC = () => {
           sx={{ width: 250 }}
           role="presentation"
           onKeyDown={toggleDrawer(false)}
+          onClick={toggleDrawer(false)}
         >
           <HeaderNavbar orientation="vertical" />
           <AuthButtons orientation="vertical" isLoggedIn={false} />
