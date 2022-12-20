@@ -14,14 +14,11 @@ import {
   Alert,
 } from '@mui/material';
 import LoginIcon from '@mui/icons-material/Login';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import { SideImage } from '../components/SideImage';
 import { loginSchema } from '../utils/validation/loginData';
 import { InputFiled } from '../components/InputField';
-import { styles } from './styles';
-
-const theme = createTheme();
+import { styles } from './formsStyles';
 
 export const Login: FC = () => {
   // ? This is the mutation function which makes the backend fetch and saves the data in its cache.
@@ -45,93 +42,93 @@ export const Login: FC = () => {
   const onSubmit: SubmitHandler<FieldValue<any>> = (data: any) => mutate(data);
 
   return (
-    <ThemeProvider theme={theme}>
-      <Container
-        component="main"
-        maxWidth={false}
-        sx={styles.mainContainer}
-        style={{ padding: 0 }}
+    <Container
+      component="main"
+      maxWidth={false}
+      sx={styles.mainContainer}
+      style={{ padding: 0 }}
+    >
+      <CssBaseline />
+      <Box
+        sx={styles.box}
       >
-        <CssBaseline />
-        <Box
-          sx={styles.box}
+        <Avatar sx={styles.avatar}>
+          <LoginIcon sx={styles.icon} />
+        </Avatar>
+        <Typography component="h1" variant="h2">
+          Sign in
+        </Typography>
+        <Container
+          maxWidth={false}
+          component="form"
+          onSubmit={handleSubmit(onSubmit)}
+          sx={styles.formContainer}
         >
-          <Avatar sx={styles.avatar}>
-            <LoginIcon sx={styles.loginIcon} />
-          </Avatar>
-          <Typography component="h1" variant="h2">
-            Sign in
-          </Typography>
-          <Container
-            maxWidth={false}
-            component="form"
-            onSubmit={handleSubmit(onSubmit)}
-            sx={styles.formContainer}
-          >
-            <InputFiled
-              fieldName="email"
-              control={control}
-              type="email"
-              placeholder="Enter your email address..."
-            />
-            {errors.email && <Alert variant="standard" severity="error">Invalid email address!</Alert>}
-            <InputFiled
-              fieldName="password"
-              control={control}
-              type="password"
-              placeholder="Enter your password..."
-            />
-            {errors.password && (
+          <InputFiled
+            fieldName="email"
+            control={control}
+            type="email"
+            placeholder="Enter your email address..."
+            activeStep={10}
+          />
+          {errors.email && <Alert variant="standard" severity="error">Invalid email address!</Alert>}
+          <InputFiled
+            fieldName="password"
+            control={control}
+            type="password"
+            placeholder="Enter your password..."
+            activeStep={10}
+          />
+          {errors.password && (
             <Alert variant="standard" severity="error">
               The password should contain at least eight characters including one capital letter,
               one small letter, on number, and on symbol!
             </Alert>
-            )}
-            <Button
-              type="submit"
-              variant="contained"
-              fullWidth
-              sx={styles.submitButton}
-            >
-              Log In
-            </Button>
-            <Typography
-              variant="body1"
-              color="text.secondary"
-              align="center"
-              sx={styles.firstTypography}
-            >
-              You don&#39;t have an account?
-              {' '}
-              <Button variant="text">
-                <Link color="inherit" href="/signup" target="_blank">Sign Up</Link>
-              </Button>
-              Now.
-            </Typography>
-            <Typography
-              variant="body2"
-              color="text.secondary"
-              align="center"
-              sx={styles.secondTypography}
-            >
-              All Rights Reserver Copyright ©
-              {' '}
-              <Link
-                color="inherit"
-                href="https://github.com/moustf"
-                target="_blank"
-              >
-                Mustafa Salem
-              </Link>
-              {' '}
-              {new Date().getFullYear()}
-              {' '}
-              .
-            </Typography>
-          </Container>
-        </Box>
-        <SideImage />
-      </Container>
-    </ThemeProvider>
+          )}
+          <Button
+            type="submit"
+            variant="contained"
+            fullWidth
+            sx={styles.submitButton}
+          >
+            Log In
+          </Button>
+        </Container>
+        <Typography
+          variant="body1"
+          color="text.secondary"
+          align="center"
+          sx={styles.firstTypography}
+        >
+          You don&#39;t have an account?
+          {' '}
+          <Button variant="text">
+            <Link color="inherit" href="/signup">Sign Up</Link>
+          </Button>
+          Now.
+        </Typography>
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          align="center"
+          sx={styles.secondTypography}
+        >
+          All Rights Reserver Copyright ©
+          {' '}
+          <Link
+            color="inherit"
+            href="https://github.com/moustf"
+            target="_blank"
+          >
+            Mustafa Salem
+          </Link>
+          {' '}
+          {new Date().getFullYear()}
+          {' '}
+          .
+        </Typography>
+      </Box>
+      <SideImage />
+    </Container>
   );
 };

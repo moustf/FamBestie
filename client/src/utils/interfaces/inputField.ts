@@ -1,8 +1,9 @@
 import { Control } from 'react-hook-form';
 
 export interface InputFieldInterface {
-  control: Control<{ email: string; password: string; }, any>,
-  fieldName: 'email' | 'password',
+  control: Control<any>,
+  fieldName: string,
   type: string,
   placeholder: string,
+  activeStep: number,
 }

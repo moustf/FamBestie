@@ -4,8 +4,16 @@ import TextField from '@mui/material/TextField';
 
 import { InputFieldInterface } from '../utils/interfaces/inputField';
 
+const signupSteps: {
+  [k: number]: string[],
+} = {
+  0: ['name', 'email', 'location'],
+  1: ['password', 'passwordConfirmation'],
+  2: ['phone'],
+};
+
 export const InputFiled: FC<InputFieldInterface> = ({
-  control, fieldName, type, placeholder,
+  control, fieldName, type, placeholder, activeStep,
 }) => (
   <Controller
     name={fieldName}
@@ -15,12 +23,21 @@ export const InputFiled: FC<InputFieldInterface> = ({
         margin="normal"
         required
         fullWidth
-        label={name}
+        label={
+          name === 'passwordConfirmation'
+            ? 'Password Confirmation'
+            : name === 'phone'
+              ? 'Phone Number'
+              : `${name.charAt(0).toUpperCase()}${name.substring(1)}`
+        }
         type={type}
         name={name}
         placeholder={placeholder}
         onChange={onChange}
         onBlur={onBlur}
+        sx={{
+          display: activeStep === 10 || signupSteps[activeStep].includes(fieldName) ? 'block' : 'none',
+        }}
       />
     )}
   />
