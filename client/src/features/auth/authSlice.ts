@@ -54,13 +54,13 @@ export const createErrorAction = (payload: unknown): {
 
 export const selectUserData = createSelector(
   // * First, pass one or more "input selector" functions.
-  (state: InitialState) => state.userData,
+  (state: { authReducer: InitialState; }) => state.authReducer.userData,
   // * Then the return output, we can do any logic with it.
   (userData) => userData,
 );
 
 export const selectError = createSelector(
-  (state: InitialState) => state.error,
+  (state: { authReducer: InitialState; }) => state.authReducer.error,
   (error) => error,
 );
 
