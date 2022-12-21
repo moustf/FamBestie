@@ -25,31 +25,31 @@ export const AuthButtons: FC<{ isLoggedIn: boolean, orientation: 'horizontal' | 
     >
       {
         !isLoggedIn
-          && (
+        && (
           <Link to="/login" style={{ textDecoration: 'none' }}>
             <Button variant="contained" sx={{ boxShadow: '0px 0px 5px 0px rgba(255, 255, 255, .15)' }}>
               Login
             </Button>
           </Link>
-          )
+        )
       }
       {
         !isLoggedIn
-          && (
+        && (
           <Link to="/signup" style={{ textDecoration: 'none' }}>
             <Button variant="contained" sx={{ boxShadow: '0px 0px 5px 0px rgba(255, 255, 255, .15)' }}>
               Signup
             </Button>
           </Link>
-          )
-  }
+        )
+      }
       {
         isLoggedIn
-          && (
+        && (
           <Button variant="contained" sx={{ boxShadow: '0px 0px 5px 0px rgba(255, 255, 255, .15)' }} onClick={logout}>
             Logout
           </Button>
-          )
+        )
       }
     </Box>
   );

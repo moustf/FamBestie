@@ -5,6 +5,6 @@ import Logo from '../assets/Logo.png';
 
 export const AppLogo: FC = () => (
   <Link to="/">
-    <img src={Logo} alt="logo" />
+    <img style={{ width: '100%' }} src={Logo} alt="logo" />
   </Link>
 );
