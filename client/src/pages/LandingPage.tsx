@@ -1,6 +1,22 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { Header } from '../components/Header/Header';
 
-export const LandingPage: FC = () => (
-  <Header />
-);
+import { useAppDispatch, useAppSelector } from '../hooks/redux';
+import { setUserData, selectUserData } from '../features/auth/authSlice';
+import { UserData } from '../utils/interfaces/redux';
+
+export const LandingPage: FC = () => {
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(setUserData());
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const userData: UserData = useAppSelector(selectUserData);
+
+  return (
+    <main>
+      <Header isLoggedIn={Boolean(userData.id)} />
+    </main>
+  );
+};

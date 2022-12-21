@@ -1,17 +1,11 @@
-import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
+import { useAppDispatch } from './redux';
+import { clearUserData } from '../features/auth/authSlice';
 
 export const useLogout = (): (() => void) => {
-  const { refetch } = useQuery({
-    queryKey: ['logout'],
-    queryFn: () => (
-      axios.post('/auth/logout')
-    ),
-    enabled: false,
-  });
+  const dispatch = useAppDispatch();
 
   const handleLogout = (): void => {
-    refetch();
+    dispatch(clearUserData());
   };
 
   return handleLogout;
