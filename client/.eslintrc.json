@@ -27,6 +27,7 @@
       "no-nested-ternary": 0,
       "no-use-before-define": "off",
       "no-param-reassign": 0,
+      "max-len": ["error", { "code": 136 }],
       "@typescript-eslint/no-use-before-define": [
         "error"
       ],

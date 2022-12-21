@@ -1,11 +1,10 @@
 import { store } from '../../store';
 
 export interface UserData {
-  data: {
-    id: number,
+  [x: string]: any;
+  id: number,
   name: string,
   role: string,
-  }
 }
 
 export interface InitialState {

@@ -5,22 +5,22 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 
-import { TempNavigator } from './components/tempNavigator';
+import { LandingPage } from './pages/LandingPage';
 import { Signup } from './pages/Signup';
 import { Login } from './pages/Login';
 
 const theme = createTheme({
   palette: {
     primary: {
-      light: '#757de8',
-      main: '#3f51b5',
-      dark: '#002984',
+      light: '#9BC5E5',
+      main: '#5496C9',
+      dark: '#006DBF',
       contrastText: '#ffffff',
     },
     secondary: {
-      light: '#ff7961',
-      main: '#f44336',
-      dark: '#ba000d',
+      light: '#6052E1',
+      main: '#3B319A',
+      dark: '#1200B8',
       contrastText: '#000000',
     },
   },
@@ -32,7 +32,7 @@ const App: FC = () => {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <TempNavigator />,
+      element: <LandingPage />,
     },
     {
       path: '/login',
