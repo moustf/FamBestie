@@ -1,36 +1,19 @@
-import { createSlice, createSelector, PayloadAction } from '@reduxjs/toolkit';
-import { useQuery } from '@tanstack/react-query';
+import {
+  createSlice, createSelector, createAsyncThunk,
+} from '@reduxjs/toolkit';
 import axios, { AxiosResponse } from 'axios';
 
-import { UserData, InitialState, AppDispatch } from '../../utils/interfaces/redux';
+import { UserData, InitialState } from '../../utils/interfaces/redux';
 
 const initialState: InitialState = {
   userData: {
-    data: {
-      id: 0,
-      name: '',
-      role: '',
-    },
+    id: 0,
+    name: '',
+    role: '',
   },
   isLoading: true,
   error: '',
 };
-
-// ! The main auth slice.
-const authSlice = createSlice({
-  name: 'auth',
-  initialState,
-  reducers: {
-    setUserData(state, action: PayloadAction<UserData>) {
-      state.isLoading = false;
-      state.userData = action.payload;
-    },
-    setError(state, action: PayloadAction<unknown>) {
-      state.isLoading = false;
-      state.error = action.payload;
-    },
-  },
-});
 
 // ? Action creator function START.
 
@@ -68,21 +51,45 @@ export const selectError = createSelector(
 
 // ? Thunk function and its fetch helper function START.
 
-export const fetchUserData = () => async (dispatch: AppDispatch) => {
-  const fetchData = async (): Promise<AxiosResponse<UserData, unknown>> => (
-    axios.get('/auth/user')
-  );
-  useQuery({
-    queryKey: ['userData'],
-    queryFn: fetchData,
-    onSuccess: ({
-      data: { data: { id, name, role } },
-    }) => dispatch(createUserDataAction({ id, name, role })),
-    onError: (error) => dispatch(createErrorAction(error)),
-  });
-};
+const fetchUserData = async (): Promise<AxiosResponse<UserData, unknown>> => (
+  axios.get('/auth/user')
+);
+export const setUserData = createAsyncThunk('auth/setUserData', fetchUserData);
+
+const logout = async (): Promise<AxiosResponse<UserData, unknown>> => (
+  axios.post('/auth/logout')
+);
+
+export const clearUserData = createAsyncThunk('auth/clearUserData', logout);
 
 // ? Thunk function and its fetch helper function END.
 
-export const { setUserData, setError } = authSlice.actions;
+// ! The main auth slice.
+const authSlice = createSlice({
+  name: 'auth',
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(setUserData.fulfilled, (state, action) => {
+      state.userData = action.payload.data.data;
+      state.isLoading = false;
+    });
+    builder.addCase(setUserData.rejected, (state, action) => {
+      state.error = action.error.message;
+      state.isLoading = false;
+    });
+
+    builder.addCase(clearUserData.fulfilled, (state) => {
+      state.userData = { id: 0, name: '', role: '' };
+      state.isLoading = false;
+    });
+    builder.addCase(clearUserData.rejected, (state, action) => {
+      state.error = action.error.message;
+    });
+  },
+});
+
+// ? Thunk function and its fetch helper function END.
+
+// ? Exporting the main auth slice reducer.
 export const authReducer = authSlice.reducer;
