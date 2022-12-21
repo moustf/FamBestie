@@ -4,6 +4,7 @@ import { Header } from '../components/Header/Header';
 import { useAppDispatch, useAppSelector } from '../hooks/redux';
 import { setUserData, selectUserData } from '../features/auth/authSlice';
 import { UserData } from '../utils/interfaces/redux';
+import { LandingSection } from '../components/LandingSection/LandingSection';
 
 export const LandingPage: FC = () => {
   const dispatch = useAppDispatch();
@@ -17,6 +18,7 @@ export const LandingPage: FC = () => {
   return (
     <main>
       <Header isLoggedIn={Boolean(userData.id)} />
+      <LandingSection />
     </main>
   );
 };
