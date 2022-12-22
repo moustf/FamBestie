@@ -52,7 +52,7 @@ export const Worker = sequelize.define('Worker', {
     allowNull: false,
     validate: {
       isIn: {
-        args: [['Driver', 'Housekeeper', 'Babysitter', 'Trainer', 'Guard']],
+        args: [['driver', 'housekeeper', 'babysitter', 'trainer', 'guard']],
         msg: 'Please select a valid specialty!',
       },
     },

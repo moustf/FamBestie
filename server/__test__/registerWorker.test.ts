@@ -18,7 +18,7 @@ describe('Testing register worker route', () => {
         location: 'Gaza',
         dateOfBirth: '2018-09-24',
         yearsOfExperience: 2,
-        specialty: 'Trainer',
+        specialty: 'trainer',
       })
       .end((err, res) => {
         if (err) return done(err);
@@ -38,7 +38,7 @@ describe('Testing register worker route', () => {
         location: 'Gaza',
         dateOfBirth: '2018-09-24',
         yearsOfExperience: 2,
-        specialty: 'Trainer',
+        specialty: 'trainer',
       })
       .expect(201)
       .end((err, res) => {
@@ -59,7 +59,7 @@ describe('Testing register worker route', () => {
         location: 'Gaza',
         dateOfBirth: '2018-09-24',
         yearsOfExperience: 2,
-        specialty: 'Trainer',
+        specialty: 'trainer',
       })
       .expect(201)
       .end((err, res) => {
@@ -80,7 +80,7 @@ describe('Testing register worker route', () => {
         location: 'Gaza',
         dateOfBirth: '2018-09-24',
         yearsOfExperience: 2,
-        specialty: 'Trainer',
+        specialty: 'trainer',
       })
       .expect(400)
       .end((err, res) => {
@@ -101,7 +101,7 @@ describe('Testing register worker route', () => {
         location: 'Gaza',
         dateOfBirth: '2018-09-24',
         yearsOfExperience: 2,
-        specialty: 'Trainer',
+        specialty: 'trainer',
       })
       .end((err, res) => {
         if (err) return done(err);

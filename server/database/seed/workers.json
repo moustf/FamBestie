@@ -7,7 +7,7 @@
     "phone": "0591234567",
     "date_of_birth": "1997-09-23",
     "state": "hired",
-    "specialty": "Driver",
+    "specialty": "driver",
     "years_of_experience": "2",
     "hiring_date": "2022-11-16"
   },
@@ -19,7 +19,7 @@
     "phone": "0591234567",
     "date_of_birth": "1992-04-15",
     "state": "hired",
-    "specialty": "Housekeeper",
+    "specialty": "housekeeper",
     "years_of_experience": "1",
     "hiring_date": "2021-12-20"
   },
@@ -31,7 +31,7 @@
     "phone": "0591234567",
     "date_of_birth": "2001-06-22",
     "state": "hired",
-    "specialty": "Babysitter",
+    "specialty": "babysitter",
     "years_of_experience": "3",
     "hiring_date": "2022-11-16"
   },
@@ -43,7 +43,7 @@
     "phone": "0591234567",
     "date_of_birth": "1998-03-20",
     "state": "hired",
-    "specialty": "Trainer",
+    "specialty": "trainer",
     "years_of_experience": "2",
     "hiring_date": "2020-09-13"
   },
@@ -55,7 +55,7 @@
     "phone": "0591234567",
     "date_of_birth": "1997-01-20",
     "state": "hired",
-    "specialty": "Guard",
+    "specialty": "guard",
     "years_of_experience": "2",
     "hiring_date": "2020-09-13"
   },
@@ -67,7 +67,7 @@
     "phone": "0591234567",
     "date_of_birth": "1997-09-23",
     "state": "unemployed",
-    "specialty": "Driver",
+    "specialty": "driver",
     "years_of_experience": "2",
     "hiring_date": "2022-11-16"
   },
@@ -79,7 +79,7 @@
     "phone": "0591234567",
     "date_of_birth": "1992-04-15",
     "state": "unemployed",
-    "specialty": "Housekeeper",
+    "specialty": "housekeeper",
     "years_of_experience": "1",
     "hiring_date": "2021-12-20"
   },
@@ -91,7 +91,7 @@
     "phone": "0591234567",
     "date_of_birth": "2001-06-22",
     "state": "unemployed",
-    "specialty": "Babysitter",
+    "specialty": "babysitter",
     "years_of_experience": "3",
     "hiring_date": "2022-11-16"
   },
@@ -103,7 +103,7 @@
     "phone": "0591234567",
     "date_of_birth": "1998-03-20",
     "state": "unemployed",
-    "specialty": "Trainer",
+    "specialty": "trainer",
     "years_of_experience": "2",
     "hiring_date": "2020-09-13"
   },
@@ -115,7 +115,7 @@
     "phone": "0591234567",
     "date_of_birth": "1997-01-20",
     "state": "unemployed",
-    "specialty": "Guard",
+    "specialty": "guard",
     "years_of_experience": "2",
     "hiring_date": "2020-09-13"
   }
