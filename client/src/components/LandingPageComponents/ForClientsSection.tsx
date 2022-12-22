@@ -14,7 +14,9 @@ const textArray = [
 export const ForClientsSection: FC = () => (
   <Container sx={{
     width: '100%',
-    height: '90vh',
+    height: {
+      xs: '80vh', sm: '48vh', md: '90vh', lg: '90vh', xl: '90vh',
+    },
     maxWidth: {
       xs: '90%', sm: '90%', md: '80%', lg: '1400px', xl: '1500px',
     },

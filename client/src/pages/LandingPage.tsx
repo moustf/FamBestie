@@ -6,6 +6,7 @@ import { setUserData, selectUserData } from '../features/auth/authSlice';
 import { UserData } from '../utils/interfaces/redux';
 import { LandingSection } from '../components/LandingPageComponents/LandingSection';
 import { ForClientsSection } from '../components/LandingPageComponents/ForClientsSection';
+import { ForWorkersSection } from '../components/LandingPageComponents/ForWorkersSection';
 
 export const LandingPage: FC = () => {
   const dispatch = useAppDispatch();
@@ -21,6 +22,7 @@ export const LandingPage: FC = () => {
       <Header isLoggedIn={Boolean(userData.id)} />
       <LandingSection />
       <ForClientsSection />
+      <ForWorkersSection />
     </main>
   );
 };
