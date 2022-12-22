@@ -5,13 +5,13 @@ import { SectionTitle } from './SectionTitle';
 import { TextBox } from './TextBox';
 
 const textArray = [
-  'Client can create an account.',
-  'Client can search for worker by specialty if he want to select a specific worker or he can send a job request to the admin.',
-  'Client can review workers who worked with for him by giving stars rate or a text feedback.',
-  'Client can find all the workers who have worked for him, the total amount of money he has spent, ans many more in his profile',
+  'Workers can register to join the staff.',
+  'The worker will provide his information and wait for the HR team to contact him when  we need new employees.',
+  'Workers can take advantage of their network, if a customer specifically asked for a worker, that worker will take the job',
+  'Our range of specialties includes: Housekeepers, Guards, Babysitters, Drivers, and also Trainers',
 ];
 
-export const ForClientsSection: FC = () => (
+export const ForWorkersSection: FC = () => (
   <Container sx={{
     width: '100%',
     height: {
@@ -32,7 +32,7 @@ export const ForClientsSection: FC = () => (
     },
   }}
   >
-    <SectionTitle title="For Clients" />
+    <SectionTitle title="For Workers" />
     <Box sx={{
       width: {
         xs: '90%', sm: '90%', md: '70%', lg: '60%', xl: '60%',
@@ -51,7 +51,7 @@ export const ForClientsSection: FC = () => (
     }}
     >
       {
-        textArray.map((text: string) => <TextBox text={text} />)
+        textArray.map((text) => <TextBox text={text} />)
       }
     </Box>
   </Container>
