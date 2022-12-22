@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Container, Box } from '@mui/material';
+import { v4 as uuid4 } from 'uuid';
 
 import { SectionTitle } from './SectionTitle';
 import { TextBox } from './TextBox';
@@ -12,25 +13,27 @@ const textArray = [
 ];
 
 export const ForWorkersSection: FC = () => (
-  <Container sx={{
-    width: '100%',
-    height: {
-      xs: '80vh', sm: '48vh', md: '90vh', lg: '90vh', xl: '90vh',
-    },
-    maxWidth: {
-      xs: '90%', sm: '90%', md: '80%', lg: '1400px', xl: '1500px',
-    },
-    transform: {
-      xs: 'translateY(15rem)', sm: 'translateY(15rem)', md: 'translateY(18rem)', lg: 'translateY(20rem)', xl: 'translateY(20rem)',
-    },
-    p: '0 2rem',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    gap: {
-      xs: '4rem', sm: '4rem', md: '6rem', lg: '8rem', xl: '8rem',
-    },
-  }}
+  <Container
+    component="section"
+    sx={{
+      width: '100%',
+      height: {
+        xs: '80vh', sm: '48vh', md: '90vh', lg: '90vh', xl: '90vh',
+      },
+      maxWidth: {
+        xs: '90%', sm: '90%', md: '80%', lg: '1400px', xl: '1500px',
+      },
+      transform: {
+        xs: 'translateY(15rem)', sm: 'translateY(15rem)', md: 'translateY(18rem)', lg: 'translateY(20rem)', xl: 'translateY(20rem)',
+      },
+      p: '0 2rem',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      gap: {
+        xs: '4rem', sm: '4rem', md: '6rem', lg: '8rem', xl: '8rem',
+      },
+    }}
   >
     <SectionTitle title="For Workers" />
     <Box sx={{
@@ -51,7 +54,7 @@ export const ForWorkersSection: FC = () => (
     }}
     >
       {
-        textArray.map((text) => <TextBox text={text} />)
+        textArray.map((text) => <TextBox key={uuid4()} text={text} />)
       }
     </Box>
   </Container>

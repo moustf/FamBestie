@@ -2,38 +2,40 @@ import { FC } from 'react';
 import { Container, Box, Typography } from '@mui/material';
 
 export const LandingSection: FC = () => (
-  <Container sx={{
-    width: '100%',
-    height: {
-      xs: '80vh', sm: '80vh', md: '85vh', lg: '70vh',
-    },
-    transform: {
-      xs: 'translateY(8rem)', sm: 'translateY(8rem)', md: 'translateY(7rem)', lg: 'translateY(12rem)',
-    },
-    display: 'flex',
-    flexDirection: {
-      xs: 'column', sm: 'column', md: 'column', lg: 'row',
-    },
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    gap: {
-      xs: '5%', sm: '5%', md: '5%', lg: '20%',
-    },
-    maxWidth: { xs: '100vw', xl: '1500px' },
-    '& #specs': {
-      fontSize: { xs: '1.2rem', md: '1.6rem', lg: '1.6rem' },
-      ml: {
-        xs: '-2rem', sm: '-2rem', md: '-7rem', lg: '-15rem',
+  <Container
+    component="section"
+    sx={{
+      width: '100%',
+      height: {
+        xs: '80vh', sm: '80vh', md: '85vh', lg: '70vh',
       },
-      listStyleType: 'circle',
-      fontWeight: '500',
-      '& li': {
-        marginBottom: {
-          xs: '0.3rem', sm: '0.3rem', md: '0.5rem', lg: '0.7rem',
+      transform: {
+        xs: 'translateY(8rem)', sm: 'translateY(8rem)', md: 'translateY(7rem)', lg: 'translateY(12rem)',
+      },
+      display: 'flex',
+      flexDirection: {
+        xs: 'column', sm: 'column', md: 'column', lg: 'row',
+      },
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      gap: {
+        xs: '5%', sm: '5%', md: '5%', lg: '20%',
+      },
+      maxWidth: { xs: '100vw', xl: '1500px' },
+      '& #specs': {
+        fontSize: { xs: '1.2rem', md: '1.6rem', lg: '1.6rem' },
+        ml: {
+          xs: '-2rem', sm: '-2rem', md: '-7rem', lg: '-15rem',
+        },
+        listStyleType: 'circle',
+        fontWeight: '500',
+        '& li': {
+          marginBottom: {
+            xs: '0.3rem', sm: '0.3rem', md: '0.5rem', lg: '0.7rem',
+          },
         },
       },
-    },
-  }}
+    }}
   >
     <Container sx={{
       width: '40%',

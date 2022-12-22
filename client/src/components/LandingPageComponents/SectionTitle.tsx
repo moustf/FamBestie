@@ -4,7 +4,7 @@ import { Typography } from '@mui/material';
 export const SectionTitle: FC<{ title: string }> = ({ title }) => (
   <Typography
     variant="h1"
-    component="h1"
+    component="h2"
     sx={{
       color: 'primary.dark',
       fontSize: {
