@@ -28,7 +28,11 @@ export const InputFiled: FC<InputFieldInterface> = ({
             ? 'Password Confirmation'
             : name === 'phone'
               ? 'Phone Number'
-              : `${name.charAt(0).toUpperCase()}${name.substring(1)}`
+              : name === 'dateOfBirth'
+                ? 'Date Of Birth'
+                : name === 'yearsOfExperience'
+                  ? 'Years Of Experience'
+                  : `${name.charAt(0).toUpperCase()}${name.substring(1)}`
         }
         type={type}
         name={name}
