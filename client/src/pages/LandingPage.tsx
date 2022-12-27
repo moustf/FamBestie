@@ -9,6 +9,7 @@ import { LandingSection } from '../components/LandingPageComponents/LandingSecti
 import { ForClientsSection } from '../components/LandingPageComponents/ForClientsSection';
 import { ForWorkersSection } from '../components/LandingPageComponents/ForWorkersSection';
 import { RegisterWorkerForm } from '../components/LandingPageComponents/RegisterWorkerForm';
+import { Footer } from '../components/Footer/Footer';
 
 export const LandingPage: FC = () => {
   const dispatch = useAppDispatch();
@@ -27,6 +28,7 @@ export const LandingPage: FC = () => {
       <ForClientsSection />
       <ForWorkersSection />
       <RegisterWorkerForm />
+      <Footer />
     </main>
   );
 };
