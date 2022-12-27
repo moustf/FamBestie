@@ -17,7 +17,6 @@ export const HeaderNavbar: FC<{ orientation: 'horizontal' | 'vertical' }> = ({ o
       width: {
         xs: '100%', sm: '100%', md: '100%', lg: '40%',
       },
-      bgcolor: 'background.paper',
       backgroundColor: 'transparent',
     }}
     >
