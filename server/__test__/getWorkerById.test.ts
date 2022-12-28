@@ -48,6 +48,20 @@ describe('Testing login route', () => {
       });
   });
 
+  it('In the success path, it should return 200 status code and the body including user_workers array.', (done) => {
+    supertest(app)
+      .get('/api/v1/admin/worker/1')
+      .set('Cookie', [
+        'token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ik11c3RhZmEgU2FsZW0iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NzAzMzU0OTZ9.N0be-g3o_BMsqFdi4j5VLpTUpgWKiD9eYT0R2Sm2O3E',
+      ])
+      .expect(200)
+      .end((err, res) => {
+        if (err) return done(err);
+        expect(Array.isArray(res.body.data.user_workers)).toBe(true);
+        return done();
+      });
+  });
+
   it('In the failure path, it should return 404 status code and the body msg.', (done) => {
     supertest(app)
       .get('/api/v1/admin/worker/12')
