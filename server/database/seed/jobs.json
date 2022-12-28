@@ -5,7 +5,7 @@
     "stars": null,
     "review_text": null,
     "working_hours": "full-time",
-    "bill": null
+    "bill": 210
   },
   {
     "title": "Housekeeper",
@@ -13,7 +13,7 @@
     "stars": null,
     "review_text": null,
     "working_hours": "full-time",
-    "bill": null
+    "bill": 750
   },
   {
     "title": "Trainer",
@@ -21,7 +21,7 @@
     "stars": null,
     "review_text": null,
     "working_hours": "2 hours, for 3 days a week",
-    "bill": null
+    "bill": 130
   },
   {
     "title": "Babysitter",
