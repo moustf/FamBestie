@@ -9,7 +9,7 @@ beforeAll(() => buildSeed());
 describe('Testing getClientById route', () => {
   it('In the success path, it should return 200 status code.', (done) => {
     supertest(app)
-      .get('/api/v1/admin/client/1')
+      .get('/api/v1/admin/client/2')
       .set('Cookie', [
         'token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ik11c3RhZmEgU2FsZW0iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NzAzMzU0OTZ9.N0be-g3o_BMsqFdi4j5VLpTUpgWKiD9eYT0R2Sm2O3E',
       ])
@@ -22,7 +22,7 @@ describe('Testing getClientById route', () => {
 
   it('In the success path, it should return 200 status code and the returned message.', (done) => {
     supertest(app)
-      .get('/api/v1/admin/client/1')
+      .get('/api/v1/admin/client/2')
       .set('Cookie', [
         'token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ik11c3RhZmEgU2FsZW0iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NzAzMzU0OTZ9.N0be-g3o_BMsqFdi4j5VLpTUpgWKiD9eYT0R2Sm2O3E',
       ])
@@ -36,7 +36,7 @@ describe('Testing getClientById route', () => {
 
   it('In the success path, it should return 200 status code and the body data.', (done) => {
     supertest(app)
-      .get('/api/v1/admin/client/1')
+      .get('/api/v1/admin/client/2')
       .set('Cookie', [
         'token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ik11c3RhZmEgU2FsZW0iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NzAzMzU0OTZ9.N0be-g3o_BMsqFdi4j5VLpTUpgWKiD9eYT0R2Sm2O3E',
       ])
@@ -44,6 +44,20 @@ describe('Testing getClientById route', () => {
       .end((err, res) => {
         if (err) return done(err);
         expect(typeof res.body.data).toBe('object');
+        return done();
+      });
+  });
+
+  it('In the success path, it should return 200 status code and the body data including user_workers array.', (done) => {
+    supertest(app)
+      .get('/api/v1/admin/client/2')
+      .set('Cookie', [
+        'token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ik11c3RhZmEgU2FsZW0iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NzAzMzU0OTZ9.N0be-g3o_BMsqFdi4j5VLpTUpgWKiD9eYT0R2Sm2O3E',
+      ])
+      .expect(200)
+      .end((err, res) => {
+        if (err) return done(err);
+        expect(Array.isArray(res.body.data.user_workers)).toBe(true);
         return done();
       });
   });
@@ -64,7 +78,7 @@ describe('Testing getClientById route', () => {
 
   it('In the success path, it should return 401 status code and unauthorized message.', (done) => {
     supertest(app)
-      .get('/api/v1/admin/client/1')
+      .get('/api/v1/admin/client/2')
       .set('Cookie', [
         'token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IkhhbmkgSWJyYWhpbSIsInJvbGUiOiJjbGllbnQiLCJpYXQiOjE2NzAzMzc4NjZ9.FikBp-nbm7YvlrDNzee2lHZ1sdRW_CJJyHXJ_2q64_g',
       ])
