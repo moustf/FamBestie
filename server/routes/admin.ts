@@ -9,17 +9,17 @@ import { getAllWorkersController } from '../controllers/admin/getAllWorkersContr
 import { getAllClientsForWorkerController } from '../controllers/admin/getAllClientsForWorker';
 import { getAllWorkersForClientController } from '../controllers/admin/getAllWorkersForClientController';
 import { getJobsByCategoryController } from '../controllers/admin/getJobsByCategoryController';
-import { userAuth } from '../middlewares/userAuth';
-import { roleAuth } from '../middlewares/roleAuth';
+import { getTotalsStatisticsController } from '../controllers/admin/getTotalsStatisticsController';
 
 export const adminRouter = Router();
 
-adminRouter.get('/client/:id', userAuth, roleAuth('admin'), getClientByIdController);
-adminRouter.get('/worker/:id/jobs', userAuth, roleAuth('admin'), getJobsForWorkerController);
-adminRouter.get('/worker/:id', userAuth, roleAuth('admin'), getWorkerByIdController);
-adminRouter.get('/jobs', userAuth, roleAuth('admin'), getAllJobsController);
-adminRouter.get('/clients', userAuth, roleAuth('admin'), getAllClientsController);
-adminRouter.get('/workers', userAuth, roleAuth('admin'), getAllWorkersController);
-adminRouter.get('/worker/:id/clients', userAuth, roleAuth('admin'), getAllClientsForWorkerController);
-adminRouter.get('/client/:id/workers', userAuth, roleAuth('admin'), getAllWorkersForClientController);
-adminRouter.get('/jobs/:category', userAuth, roleAuth('admin'), getJobsByCategoryController);
+adminRouter.get('/client/:id', getClientByIdController);
+adminRouter.get('/worker/:id/jobs', getJobsForWorkerController);
+adminRouter.get('/worker/:id', getWorkerByIdController);
+adminRouter.get('/jobs', getAllJobsController);
+adminRouter.get('/clients', getAllClientsController);
+adminRouter.get('/workers', getAllWorkersController);
+adminRouter.get('/worker/:id/clients', getAllClientsForWorkerController);
+adminRouter.get('/client/:id/workers', getAllWorkersForClientController);
+adminRouter.get('/jobs/:category', getJobsByCategoryController);
+adminRouter.get('/statistics', getTotalsStatisticsController);
