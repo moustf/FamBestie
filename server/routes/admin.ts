@@ -11,6 +11,7 @@ import { getAllWorkersForClientController } from '../controllers/admin/getAllWor
 import { getJobsByCategoryController } from '../controllers/admin/getJobsByCategoryController';
 import { getTotalsStatisticsController } from '../controllers/admin/getTotalsStatisticsController';
 import { getWorkersBySpecialtyController } from '../controllers/admin/getWorkersBySpecialtyController';
+import { getJobsCountBySpecialtyController } from '../controllers/admin/getJobsCountBySpecialtyController';
 
 export const adminRouter = Router();
 
@@ -25,3 +26,4 @@ adminRouter.get('/client/:id/workers', getAllWorkersForClientController);
 adminRouter.get('/jobs/:category', getJobsByCategoryController);
 adminRouter.get('/statistics', getTotalsStatisticsController);
 adminRouter.get('/worker', getWorkersBySpecialtyController);
+adminRouter.get('/count/jobs', getJobsCountBySpecialtyController);

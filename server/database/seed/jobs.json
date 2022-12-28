@@ -1,5 +1,6 @@
 [
   {
+    "field": "driver",
     "title": "Personal Driver",
     "details": "I need a personal driver to help me with my family's transportation. The driver needs to have a license and have some sort of experience in diving.",
     "stars": null,
@@ -8,6 +9,7 @@
     "bill": 210
   },
   {
+    "field": "housekeeper",
     "title": "Housekeeper",
     "details": "I need a housekeeper to help my mother in the house. The housekeeper needs to have 2 years of experience at least.",
     "stars": null,
@@ -16,6 +18,7 @@
     "bill": 750
   },
   {
+    "field": "trainer",
     "title": "Trainer",
     "details": "I need a personal trainer to help me with my fitness workouts. The trainer needs to have a license and have some sort of experience in training.",
     "stars": null,
@@ -24,6 +27,7 @@
     "bill": 130
   },
   {
+    "field": "babysitter",
     "title": "Babysitter",
     "details": "I need a babysitter to take care of my child while I'm out. The babysitter needs to have a license and have some sort of experience in dealing with children, and should be patient and kind.",
     "stars": null,
@@ -32,6 +36,7 @@
     "bill": 500
   },
   {
+    "field": "guard",
     "title": "Guard",
     "details": "I need a guard to look after my building which still under construction during the night. The guard should be honest and sincere, and have a strong body to stop thieves.",
     "stars": null,
@@ -40,6 +45,7 @@
     "bill": null
   },
   {
+    "field": "guard",
     "title": "Guard",
     "details": "I need a guard to look after my building which still under construction during the night. The guard should be honest and sincere, and have a strong body to stop thieves.",
     "stars": null,

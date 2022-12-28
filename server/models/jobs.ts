@@ -7,6 +7,16 @@ export const Job = sequelize.define('Job', {
     autoIncrement: true,
     primaryKey: true,
   },
+  field: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    validate: {
+      isIn: {
+        args: [['driver', 'housekeeper', 'babysitter', 'trainer', 'guard']],
+        msg: 'Please select a valid field!',
+      },
+    },
+  },
   title: {
     type: DataTypes.STRING,
     allowNull: false,
