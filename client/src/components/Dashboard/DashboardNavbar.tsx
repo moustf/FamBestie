@@ -1,5 +1,6 @@
 import { FC } from 'react';
-import { Box, ListItem } from '@mui/material';
+import { Link } from 'react-router-dom';
+import { Box, ListItem, Button } from '@mui/material';
 import {
   Insights as InsightsIcon,
   People as PeopleIcon,
@@ -34,7 +35,11 @@ export const DashboardNavbar: FC = () => (
   <Box sx={{
     width: '100%',
     height: '100%',
-    bgcolor: 'primary.main',
+    bgcolor: 'primary.light',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
   }}
   >
     {
@@ -49,7 +54,30 @@ export const DashboardNavbar: FC = () => (
           }}
           title={item.title}
         >
-          hi
+          <Link to={item.href}>
+            <Button
+              startIcon={item.icon}
+              disableRipple
+              sx={{
+                borderRadius: 1,
+                color: 'secondary.dark',
+                fontWeight: 'fontWeightBold',
+                justifyContent: 'flex-start',
+                px: 3,
+                textAlign: 'left',
+                textTransform: 'none',
+                width: '100%',
+                '& .MuiButton-startIcon': {
+                  color: 'secondary.main',
+                },
+                '&:hover': {
+                  backgroundColor: 'rgba(255,255,255, 0.08)',
+                },
+              }}
+            >
+              {item.title}
+            </Button>
+          </Link>
         </ListItem>
       ))
     }
