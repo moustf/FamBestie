@@ -8,6 +8,7 @@ import './App.css';
 import { LandingPage } from './pages/LandingPage';
 import { Signup } from './pages/Signup';
 import { Login } from './pages/Login';
+import { Dashboard } from './pages/Dashboard';
 
 const theme = createTheme({
   palette: {
@@ -41,6 +42,10 @@ const App: FC = () => {
     {
       path: '/signup',
       element: <Signup />,
+    },
+    {
+      path: '/dashboard',
+      element: <Dashboard />,
     },
   ]);
 
