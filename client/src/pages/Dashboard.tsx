@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Box, Grid } from '@mui/material';
+import { Box, Grid, CssBaseline } from '@mui/material';
 import { Outlet } from 'react-router';
 
 import { DashboardNavbar } from '../components/Dashboard/DashboardNavbar';
@@ -12,19 +12,12 @@ export const Dashboard: FC = () => (
       height: '100vh',
       display: 'flex',
       flexGrow: 1,
-      padding: 0,
-      m: 0,
     }}
   >
+    <CssBaseline />
     <Grid
       container
       spacing={2}
-      sx={{
-        '& > .MuiGrid-item': {
-          pl: 1.05,
-          pt: 1.05,
-        },
-      }}
     >
       <Grid
         item
