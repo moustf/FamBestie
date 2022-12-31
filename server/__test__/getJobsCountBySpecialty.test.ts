@@ -6,10 +6,10 @@ import { buildSeed } from '../database/seed';
 
 beforeAll(() => buildSeed());
 
-describe('Testing getAllJobs route', () => {
+describe('Testing getAllJobsCountBySpecialty route', () => {
   it('In the success path, it should return 200 status code.', (done) => {
     supertest(app)
-      .get('/api/v1/admin/count/jobs?specialty=driver')
+      .get('/api/v1/admin/count/jobs')
       .set('Cookie', [
         'token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ik11c3RhZmEgU2FsZW0iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NzAzMzU0OTZ9.N0be-g3o_BMsqFdi4j5VLpTUpgWKiD9eYT0R2Sm2O3E',
       ])
@@ -22,7 +22,7 @@ describe('Testing getAllJobs route', () => {
 
   it('In the success path, it should return 200 status code a message.', (done) => {
     supertest(app)
-      .get('/api/v1/admin/count/jobs?specialty=driver')
+      .get('/api/v1/admin/count/jobs')
       .set('Cookie', [
         'token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ik11c3RhZmEgU2FsZW0iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NzAzMzU0OTZ9.N0be-g3o_BMsqFdi4j5VLpTUpgWKiD9eYT0R2Sm2O3E',
       ])
@@ -36,35 +36,21 @@ describe('Testing getAllJobs route', () => {
 
   it('In the success path, it should return 200 status code and the data count number.', (done) => {
     supertest(app)
-      .get('/api/v1/admin/count/jobs?specialty=driver')
+      .get('/api/v1/admin/count/jobs')
       .set('Cookie', [
         'token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ik11c3RhZmEgU2FsZW0iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NzAzMzU0OTZ9.N0be-g3o_BMsqFdi4j5VLpTUpgWKiD9eYT0R2Sm2O3E',
       ])
       .expect(200)
       .end((err, res) => {
         if (err) return done(err);
-        expect(typeof res.body.data).toBe('number');
-        return done();
-      });
-  });
-
-  it('In the failure path, it should return 400 status code and the error message.', (done) => {
-    supertest(app)
-      .get('/api/v1/admin/count/jobs?specialty=gardner')
-      .set('Cookie', [
-        'token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ik11c3RhZmEgU2FsZW0iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NzAzMzU0OTZ9.N0be-g3o_BMsqFdi4j5VLpTUpgWKiD9eYT0R2Sm2O3E',
-      ])
-      .expect(400)
-      .end((err, res) => {
-        if (err) return done(err);
-        expect(res.body.msg).toBe('The provided specialty is invalid!');
+        expect(Array.isArray(res.body.data)).toBe(true);
         return done();
       });
   });
 
   it('In the failure path, it should return 401 status code and unauthorized! message.', (done) => {
     supertest(app)
-      .get('/api/v1/admin/count/jobs?specialty=gardner')
+      .get('/api/v1/admin/count/jobs')
       .set('Cookie', [
         'token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IkhhbmkgSWJyYWhpbSIsInJvbGUiOiJjbGllbnQiLCJpYXQiOjE2NzAzMzc4NjZ9.FikBp-nbm7YvlrDNzee2lHZ1sdRW_CJJyHXJ_2q64_g',
       ])
