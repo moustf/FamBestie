@@ -9,6 +9,7 @@ import { LandingPage } from './pages/LandingPage';
 import { Signup } from './pages/Signup';
 import { Login } from './pages/Login';
 import { Dashboard } from './pages/Dashboard';
+import { DashboardStatsSection } from './components/Dashboard/DashboardStatsSection';
 
 const theme = createTheme({
   palette: {
@@ -46,6 +47,16 @@ const App: FC = () => {
     {
       path: '/dashboard',
       element: <Dashboard />,
+      children: [
+        {
+          index: true,
+          element: <DashboardStatsSection />,
+        },
+        {
+          path: 'statistics',
+          element: <DashboardStatsSection />,
+        },
+      ],
     },
   ]);
 

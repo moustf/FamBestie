@@ -9,6 +9,7 @@ import {
   Hail as HailIcon,
   Work as WorkIcon,
 } from '@mui/icons-material';
+import { v4 as uuid } from 'uuid';
 
 const items = [
   {
@@ -98,6 +99,7 @@ export const DashboardNavbar: FC = () => {
                 icon={item.icon}
                 iconPosition="end"
                 label={item.title}
+                key={uuid()}
                 sx={{
                   width: '80%',
                   color: 'primary.dark',
