@@ -43,7 +43,8 @@ export const JobsChart: FC = () => {
   return (
     <Card sx={{
       width: '100%',
-      height: '60vh',
+      height: '70vh',
+      pb: '4rem',
     }}
     >
       <CardHeader sx={{ fontWeight: 500 }} title="Jobs No. By Specialty" />
