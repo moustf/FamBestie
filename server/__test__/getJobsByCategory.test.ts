@@ -9,7 +9,7 @@ beforeAll(() => buildSeed());
 describe('Testing getJobsByCategory route', () => {
   it('In the success path, it should return 200 status code.', (done) => {
     supertest(app)
-      .get('/api/v1/admin/jobs/Trainer')
+      .get('/api/v1/admin/jobs/trainer')
       .set('Cookie', [
         'token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ik11c3RhZmEgU2FsZW0iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NzAzMzU0OTZ9.N0be-g3o_BMsqFdi4j5VLpTUpgWKiD9eYT0R2Sm2O3E',
       ])
@@ -22,7 +22,7 @@ describe('Testing getJobsByCategory route', () => {
 
   it('In the success path, it should return 200 status code and the success message.', (done) => {
     supertest(app)
-      .get('/api/v1/admin/jobs/Trainer')
+      .get('/api/v1/admin/jobs/trainer')
       .set('Cookie', [
         'token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ik11c3RhZmEgU2FsZW0iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NzAzMzU0OTZ9.N0be-g3o_BMsqFdi4j5VLpTUpgWKiD9eYT0R2Sm2O3E',
       ])
@@ -36,7 +36,7 @@ describe('Testing getJobsByCategory route', () => {
 
   it('In the success path, it should return 200 status code and the data array in the body.', (done) => {
     supertest(app)
-      .get('/api/v1/admin/jobs/Trainer')
+      .get('/api/v1/admin/jobs/trainer')
       .set('Cookie', [
         'token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ik11c3RhZmEgU2FsZW0iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NzAzMzU0OTZ9.N0be-g3o_BMsqFdi4j5VLpTUpgWKiD9eYT0R2Sm2O3E',
       ])
@@ -50,7 +50,7 @@ describe('Testing getJobsByCategory route', () => {
 
   it('In the success path, it should return 200 status code and the first object in the data array in the body.', (done) => {
     supertest(app)
-      .get('/api/v1/admin/jobs/Trainer')
+      .get('/api/v1/admin/jobs/trainer')
       .set('Cookie', [
         'token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ik11c3RhZmEgU2FsZW0iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NzAzMzU0OTZ9.N0be-g3o_BMsqFdi4j5VLpTUpgWKiD9eYT0R2Sm2O3E',
       ])
