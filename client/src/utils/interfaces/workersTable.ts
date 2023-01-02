@@ -1,20 +1,21 @@
 import { ReactElement } from 'react';
 
+export interface DataOut {
+  name: string;
+  email: string;
+  gender: string;
+  location: string;
+  phone: string;
+  state: string;
+  specialty: string;
+  dateOfBirth: Date;
+  yearsOfExperience: Date;
+  hiringDate: Date;
+  joiningDate: Date;
+  drawer: ReactElement<any, any>,
+}
 export interface Column {
-  id: (
-    'name'
-    | 'email'
-    | 'gender'
-    | 'location'
-    | 'phone'
-    | 'dateOfBirth'
-    | 'state'
-    | 'specialty'
-    | 'yearsOfExperience'
-    | 'hiringDate'
-    | 'joiningDate'
-    | 'drawer'
-  );
+  id: keyof DataOut;
   label: string;
   minWidth: number;
   align?: 'right' | 'center';
@@ -36,19 +37,4 @@ export interface DataIn {
   'hiring_date': Date;
   createdAt: Date;
   updatedAt: Date;
-}
-
-export interface DataOut {
-  name: string;
-  email: string;
-  gender: string;
-  location: string;
-  phone: string;
-  state: string;
-  specialty: string;
-  dateOfBirth: Date;
-  yearsOfExperience: Date;
-  hiringDate: Date;
-  joiningDate: Date;
-  drawer: ReactElement<any, any>,
 }

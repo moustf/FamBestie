@@ -107,7 +107,7 @@ const createData = (obj: DataIn): DataOut => (
 
 export const WorkersTable: FC = () => {
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(6);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
 
   const {
     data, isLoading, isError,
@@ -128,76 +128,75 @@ export const WorkersTable: FC = () => {
     setPage(0);
   };
 
+  if (isLoading) return <Spinner />;
+  if (isError) {
+    return (
+      <Alert
+        sx={{
+          width: '99%',
+          height: '5rem',
+          mt: 5,
+          display: 'flex',
+          alignItems: 'center',
+        }}
+        severity="error"
+      >
+        Something went wrong ...
+      </Alert>
+    );
+  }
+
   return (
-    isLoading
-      ? <Spinner />
-      : isError
-        ? (
-          <Alert
-            sx={{
-              width: '99%',
-              height: '5rem',
-              mt: 5,
-              display: 'flex',
-              alignItems: 'center',
-            }}
-            severity="error"
-          >
-            Something went wrong ...
-          </Alert>
-        )
-        : (
-          <Paper sx={{ width: '100%', height: '80%' }}>
-            <TableContainer sx={{ maxHeight: '100%', height: '100%' }}>
-              <Table stickyHeader aria-label="sticky table">
-                <TableHead>
-                  <TableRow sx={{ height: '5rem' }}>
-                    <TableCell align="center" colSpan={11} sx={{ fontSize: '1.5rem' }}>
-                      Workers Table
-                    </TableCell>
-                  </TableRow>
-                  <TableRow sx={{ height: '6rem' }}>
-                    {columns.map((col) => (
-                      <TableCell
-                        key={col.id}
-                        align={col.align}
-                        style={{ top: 57, minWidth: col.minWidth }}
-                      >
-                        {col.label}
+    <Paper sx={{ width: '100%', height: '80%' }}>
+      <TableContainer sx={{ maxHeight: '100%', height: '100%' }}>
+        <Table stickyHeader aria-label="sticky table">
+          <TableHead>
+            <TableRow sx={{ height: '5rem' }}>
+              <TableCell align="center" colSpan={11} sx={{ fontSize: '1.5rem' }}>
+                Workers Table
+              </TableCell>
+            </TableRow>
+            <TableRow sx={{ height: '6rem' }}>
+              {columns.map((col) => (
+                <TableCell
+                  key={col.id}
+                  align={col.align}
+                  style={{ top: 57, minWidth: col.minWidth }}
+                >
+                  {col.label}
+                </TableCell>
+              ))}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows
+              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              .map((row: any) => (
+                <TableRow hover role="checkbox" tabIndex={-1} key={row.id} sx={{ height: '7rem' }}>
+                  {columns.map((col) => {
+                    const value = row[col.id];
+                    return (
+                      <TableCell key={`${col.id}body`} align={col.align}>
+                        {col.format && typeof value === 'string'
+                          ? col.format(value)
+                          : value}
                       </TableCell>
-                    ))}
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {rows
-                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                    .map((row: any) => (
-                      <TableRow hover role="checkbox" tabIndex={-1} key={row.id} sx={{ height: '5rem' }}>
-                        {columns.map((col) => {
-                          const value = row[col.id];
-                          return (
-                            <TableCell key={`${col.id}body`} align={col.align}>
-                              {col.format && typeof value === 'string'
-                                ? col.format(value)
-                                : value}
-                            </TableCell>
-                          );
-                        })}
-                      </TableRow>
-                    ))}
-                </TableBody>
-              </Table>
-            </TableContainer>
-            <TablePagination
-              rowsPerPageOptions={[5, 10, 50]}
-              component="div"
-              count={rows.length}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              onPageChange={handleChangePage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-            />
-          </Paper>
-        )
+                    );
+                  })}
+                </TableRow>
+              ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+      <TablePagination
+        rowsPerPageOptions={[5, 10, 50]}
+        component="div"
+        count={rows.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+      />
+    </Paper>
   );
 };
