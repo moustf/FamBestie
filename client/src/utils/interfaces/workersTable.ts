@@ -13,7 +13,13 @@ export interface DataOut {
   hiringDate?: Date;
   joiningDate: Date;
   visibility?: boolean;
-  drawer: ReactElement<any, any>,
+  title?: string;
+  details?: string;
+  stars?: number;
+  'review_text'?: string;
+  'working_hours'?: string;
+  bill?: number;
+  drawer?: ReactElement<any, any>,
 }
 export interface Column {
   id: keyof DataOut;
