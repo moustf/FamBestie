@@ -10,9 +10,6 @@ export const getClientByIdQuery = (id: number) => User.findOne({
     attributes: {
       exclude: ['createdAt', 'updatedAt', 'user_id', 'worker_id', 'job_id'],
     },
-    where: {
-      user_id: id,
-    },
     include: [{
       model: Worker,
       attributes: ['id', 'name', 'email', 'location', 'phone', 'specialty', 'years_of_experience'],
