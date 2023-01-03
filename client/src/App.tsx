@@ -13,6 +13,7 @@ import { DashboardStatsSection } from './components/Dashboard/DashboardStatsSect
 import { DashboardWorkersSection } from './components/Dashboard/DashboardWorkersSection';
 import { DashboardClientsSection } from './components/Dashboard/DashboardClientsSection';
 import { DashboardJobsSection } from './components/Dashboard/DashboardJobsSection';
+import { Client } from './pages/Client';
 
 const theme = createTheme({
   palette: {
@@ -72,6 +73,10 @@ const App: FC = () => {
           element: <DashboardJobsSection />,
         },
       ],
+    },
+    {
+      path: '/client/:clientId',
+      element: <Client />,
     },
   ]);
 
