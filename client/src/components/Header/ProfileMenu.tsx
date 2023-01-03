@@ -1,4 +1,5 @@
 import { FC, useState, MouseEvent } from 'react';
+import { useNavigate } from 'react-router';
 import {
   Box,
   Avatar,
@@ -13,11 +14,17 @@ import {
   PersonAdd, Logout, Person as PersonIcon,
 } from '@mui/icons-material';
 
+import { useAppSelector } from '../../hooks/redux';
+import { selectUserData } from '../../features/auth/authSlice';
 import { useLogout } from '../../hooks/useLogout';
 
 export const ProfileMenu :FC = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+
+  const { id: userId } = useAppSelector(selectUserData);
+  const navigate = useNavigate();
+
   const handleClick = (event: MouseEvent<HTMLElement>): void => {
     setAnchorEl(event.currentTarget);
   };
@@ -89,7 +96,7 @@ export const ProfileMenu :FC = () => {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem>
+        <MenuItem onClick={() => navigate(`/client/${userId}`)}>
           <Avatar />
           {' '}
           Profile
