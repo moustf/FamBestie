@@ -9,7 +9,7 @@ export const userAuth = async (req: any, res: Response, next: NextFunction): Pro
     const { token } = req.cookies;
 
     if (!token) {
-      throw new CustomError(400, 'Unauthenticated!');
+      throw new CustomError(401, 'Unauthenticated!');
     }
 
     const user: UserAuthData = await verifyToken(token) as UserAuthData;
