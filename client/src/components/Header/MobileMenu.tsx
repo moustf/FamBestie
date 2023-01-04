@@ -7,7 +7,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { HeaderNavbar } from './NavBar';
 import { AuthButtons } from './authButtons';
 
-export const MobileMenu: FC<{ isLoggedIn: boolean }> = ({ isLoggedIn }) => {
+export const MobileMenu: FC<{ isLoggedIn: boolean, home: boolean }> = ({ isLoggedIn, home }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggleDrawer = (open: boolean) => (event: KeyboardEvent | MouseEvent) => {
@@ -43,7 +43,7 @@ export const MobileMenu: FC<{ isLoggedIn: boolean }> = ({ isLoggedIn }) => {
           onKeyDown={toggleDrawer(false)}
           onClick={toggleDrawer(false)}
         >
-          <HeaderNavbar orientation="vertical" />
+          {home && <HeaderNavbar orientation="vertical" />}
           <AuthButtons orientation="vertical" isLoggedIn={isLoggedIn} />
         </Box>
       </SwipeableDrawer>
