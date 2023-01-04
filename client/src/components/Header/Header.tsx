@@ -10,7 +10,7 @@ import { AuthButtons } from './authButtons';
 import { AppLogo } from '../Logo';
 import { MobileMenu } from './MobileMenu';
 
-export const Header: FC<{ isLoggedIn: boolean }> = ({ isLoggedIn }) => (
+export const Header: FC<{ isLoggedIn: boolean, home: boolean }> = ({ isLoggedIn, home }) => (
   <AppBar
     sx={{
       width: '100vw',
@@ -53,7 +53,7 @@ export const Header: FC<{ isLoggedIn: boolean }> = ({ isLoggedIn }) => (
     }}
     >
       <AppLogo />
-      <HeaderNavbar orientation="horizontal" />
+      {home && <HeaderNavbar orientation="horizontal" />}
       <AuthButtons isLoggedIn={isLoggedIn} orientation="horizontal" />
     </Box>
     <Box sx={{
@@ -65,7 +65,7 @@ export const Header: FC<{ isLoggedIn: boolean }> = ({ isLoggedIn }) => (
       alignItems: 'center',
     }}
     >
-      <MobileMenu isLoggedIn={isLoggedIn} />
+      <MobileMenu isLoggedIn={isLoggedIn} home={home} />
       <Box sx={{
         width: { xs: '25%', sm: '15%', md: '11%' },
         display: 'flex',
