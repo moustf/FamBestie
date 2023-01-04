@@ -1,10 +1,13 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 
+import { useAppDispatch, useAppSelector } from './hooks/redux';
+import { setUserData, selectUserData } from './features/auth/authSlice';
+import { UserData } from './utils/interfaces/redux';
 import { LandingPage } from './pages/LandingPage';
 import { Signup } from './pages/Signup';
 import { Login } from './pages/Login';
@@ -14,6 +17,7 @@ import { DashboardWorkersSection } from './components/Dashboard/DashboardWorkers
 import { DashboardClientsSection } from './components/Dashboard/DashboardClientsSection';
 import { DashboardJobsSection } from './components/Dashboard/DashboardJobsSection';
 import { Client } from './pages/Client';
+import { Worker } from './pages/Worker';
 
 const theme = createTheme({
   palette: {
@@ -35,10 +39,18 @@ const theme = createTheme({
 const App: FC = () => {
   const queryClient = new QueryClient();
 
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(setUserData());
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const userData: UserData = useAppSelector(selectUserData);
+
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <LandingPage />,
+      element: <LandingPage id={userData.id} />,
     },
     {
       path: '/login',
@@ -77,6 +89,10 @@ const App: FC = () => {
     {
       path: '/client/:clientId',
       element: <Client />,
+    },
+    {
+      path: '/worker',
+      element: <Worker id={userData.id} />,
     },
   ]);
 
