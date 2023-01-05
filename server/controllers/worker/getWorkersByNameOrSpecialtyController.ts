@@ -6,10 +6,18 @@ import { getWorkersByNameOrSpecialtyQuery } from '../../queries/worker/getWorker
 
 export const getWorkersByNameOrSpecialtyController = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const { name, specialty } = req.query;
-    await nameAndSpecialtySchema.validate({ name, specialty });
+    const { name, specialty, offset } = req.query;
+    await nameAndSpecialtySchema.validate({ name, specialty, offset });
 
-    const workers = await getWorkersByNameOrSpecialtyQuery(name as any, specialty as any);
+    const workers = await getWorkersByNameOrSpecialtyQuery(name as any, specialty as any, offset as any);
+
+    if (specialty && workers.length === 0) {
+      return res.json({ msg: 'There is not left workers!', data: workers });
+    }
+
+    if (name && workers.length === 0) {
+      return res.json({ msg: 'There is not left workers!', data: workers });
+    }
 
     if (workers.length === 0) {
       throw new CustomError(404, 'The name you are searching for does not exist!');
