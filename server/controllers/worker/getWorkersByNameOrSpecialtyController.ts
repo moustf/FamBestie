@@ -15,10 +15,6 @@ export const getWorkersByNameOrSpecialtyController = async (req: Request, res: R
       return res.json({ msg: 'There is not left workers!', data: workers });
     }
 
-    if (name && workers.length === 0) {
-      return res.json({ msg: 'There is not left workers!', data: workers });
-    }
-
     if (workers.length === 0) {
       throw new CustomError(404, 'The name you are searching for does not exist!');
     }
