@@ -1,12 +1,15 @@
-import { FC, useState, ChangeEvent } from 'react';
+import {
+  FC, ChangeEvent, Dispatch, SetStateAction, useState,
+} from 'react';
 import {
   Container, TextField, Typography, FormControl, NativeSelect, InputLabel, Grid,
 } from '@mui/material';
 import { useQuery, useMutation } from '@tanstack/react-query';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 
-export const FiltersSection: FC = () => {
-  const [workers, setWorkers] = useState();
+export const FiltersSection: FC<{ offset: number, setWorkers: Dispatch<SetStateAction<any>> }> = ({ offset, setWorkers }) => {
+  const [nameState, setNameState] = useState('');
+  const [specialtyState, setSpecialtyState] = useState('all');
 
   const { data } = useQuery({
     queryKey: ['getHiredWorkersCount'],
@@ -15,31 +18,39 @@ export const FiltersSection: FC = () => {
     ),
   });
 
+  useQuery({
+    queryKey: [`getWorkersAllData${offset}`],
+    queryFn: async () => (
+      axios.get(`/worker?name=${nameState}&specialty=${specialtyState}&offset=${offset}`)
+    ),
+    onSuccess: (workers: AxiosResponse<any>) => setWorkers(workers.data.data),
+  });
+
   // ? Creating a function to request the data when the user search by name.
   const { mutate: mutateName } = useMutation({
     mutationFn: async (name: string) => (
-      axios.get(`/worker?name=${name}`)
+      axios.get(`/worker?name=${name}&specialty=${specialtyState}&offset=${offset}`)
     ),
     onSuccess: (workersResponse) => setWorkers(workersResponse.data.data),
   });
 
   const onSearchChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
     mutateName(event.target.value);
+    setNameState(event.target.value);
   };
 
   // ? Creating a function to request the data when the user filters by specialty.
   const { mutate: mutateSpecialty } = useMutation({
     mutationFn: async (specialty: string) => (
-      axios.get(`/worker?specialty=${specialty}`)
+      axios.get(`/worker?specialty=${specialty}&name=${nameState}&offset=${offset}`)
     ),
     onSuccess: (workersResponse) => setWorkers(workersResponse.data.data),
   });
 
   const onSpecialtyChange = (event: ChangeEvent<HTMLSelectElement>): void => {
     mutateSpecialty(event.target.value);
+    setSpecialtyState(event.target.value);
   };
-
-  console.log(workers);
 
   return (
     <Container
