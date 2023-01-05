@@ -21,7 +21,7 @@ export const FiltersSection: FC<{ offset: number, setWorkers: Dispatch<SetStateA
   useQuery({
     queryKey: [`getWorkersAllData${offset}`],
     queryFn: async () => (
-      axios.get(`/worker?name=${nameState}&specialty=all&offset=${offset}`)
+      axios.get(`/worker?name=${nameState}&specialty=${specialtyState}&offset=${offset}`)
     ),
     onSuccess: (workers: AxiosResponse<any>) => setWorkers(workers.data.data),
   });
