@@ -14,3 +14,14 @@ export interface Worker {
     };
   }[];
 }
+
+export interface WorkerCardObject {
+  id: number;
+  name: string;
+  email: string;
+  location: string;
+  gender: string;
+  phone: string;
+  specialty: string;
+  'years_of_experience': string;
+}
