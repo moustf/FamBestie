@@ -40,7 +40,7 @@ export const ClientInfoCard: FC<{ userInfo: ClientInfo }> = ({ userInfo }) => (
         }}
       />
     </Box>
-    <Tooltip title="Account settings">
+    <Tooltip title="Client Avatar">
       <Avatar sx={{
         width: 100,
         height: 100,

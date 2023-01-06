@@ -150,7 +150,7 @@ export const WorkersDrawer: FC<{ id: number }> = ({ id }) => {
                 mb: '5rem',
               }}
               >
-                <Tooltip title="Account settings">
+                <Tooltip title="Worker Avatar">
                   <Avatar sx={{ width: 128, height: 128, bgcolor: 'primary.dark' }}>
                     <PersonIcon sx={{ color: 'primary.light', fontSize: '6rem' }} />
                   </Avatar>

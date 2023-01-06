@@ -28,7 +28,7 @@ export const WorkerCard: FC<{ worker: WorkerCardObject }> = ({ worker }) => (
         bgcolor: 'secondary.light',
       }}
     />
-    <Tooltip title="Account settings">
+    <Tooltip title="Worker Avatar">
       <Avatar sx={{
         width: '15%',
         height: '15%',
