@@ -11,6 +11,7 @@ import { Header } from '../components/Header/Header';
 import { FiltersSection } from '../components/Worker/FiltersSection';
 import { WorkerCard } from '../components/Worker/workerCard';
 import { WorkerCardObject } from '../utils/interfaces/worker';
+import { Footer } from '../components/Footer/Footer';
 
 export const Worker: FC<{ id: number }> = ({ id }) => {
   const [offset, setOffset] = useState(1);
@@ -56,7 +57,7 @@ export const Worker: FC<{ id: number }> = ({ id }) => {
             xs: '100%', sm: '100%', md: '50%', lg: '30%', xl: '20%',
           },
           height: '3rem',
-          position: 'fixed',
+          position: 'absolute',
           bottom: 0,
           right: 0,
           '& .Mui-selected': { bgcolor: 'primary.light' },
@@ -76,6 +77,7 @@ export const Worker: FC<{ id: number }> = ({ id }) => {
           )}
         />
       </Stack>
+      <Footer />
     </Container>
   );
 };

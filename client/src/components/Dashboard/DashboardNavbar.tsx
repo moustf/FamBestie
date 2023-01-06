@@ -1,13 +1,14 @@
 import { FC, useState, SyntheticEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  Box, Tabs, Tab, Typography,
+  Box, Tabs, Tab, Typography, IconButton, Avatar,
 } from '@mui/material';
 import {
   Insights as InsightsIcon,
   People as PeopleIcon,
   Hail as HailIcon,
   Work as WorkIcon,
+  ArrowBack,
 } from '@mui/icons-material';
 import { v4 as uuid } from 'uuid';
 
@@ -54,6 +55,20 @@ export const DashboardNavbar: FC = () => {
       gap: '15rem',
     }}
     >
+      <IconButton onClick={() => navigate('/')} sx={{ position: 'absolute' }}>
+        <Avatar sx={{
+          position: 'absolute',
+          top: '-1rem',
+          left: '0rem',
+          width: '2.5rem',
+          height: '2.5rem',
+          bgcolor: 'primary.dark',
+          color: 'primary.textContrast',
+        }}
+        >
+          <ArrowBack sx={{ fontSize: '1.5rem' }} />
+        </Avatar>
+      </IconButton>
       <Typography
         component="h1"
         variant="h4"
@@ -63,6 +78,7 @@ export const DashboardNavbar: FC = () => {
           position: 'relative',
           transform: 'skew(-20deg)',
           letterSpacing: '2px',
+          mt: '3rem',
           '&::after': {
             content: '" "',
             width: '100%',

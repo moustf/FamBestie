@@ -1,12 +1,12 @@
 import { FC, useState, SyntheticEvent } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 
 export const HeaderNavbar: FC<{ orientation: 'horizontal' | 'vertical' }> = ({ orientation }) => {
   const [value, setValue] = useState(0);
-  const navigate = useNavigate();
 
   const handleChange = (event: SyntheticEvent, newValue: number): void => {
     setValue(newValue);
@@ -36,30 +36,45 @@ export const HeaderNavbar: FC<{ orientation: 'horizontal' | 'vertical' }> = ({ o
             color: { xs: 'primary.dark', sm: 'primary.dark', md: 'primary.main' },
           },
           '& .MuiTabs-indicator': {
-            bgcolor: { xs: 'primary.dark', sm: 'primary.dark', md: 'primary.main' },
+            display: 'none',
+          },
+          '& a': {
+            textDecoration: 'none',
+            color: '#fff',
+            opacity: 1,
           },
         }}
       >
-        <Tab
-          label="About Us"
-          sx={{ color: 'primary.contrastText' }}
-          onClick={() => navigate('#about')}
-        />
-        <Tab
-          label="For Clients"
-          sx={{ color: 'primary.contrastText' }}
-          onClick={() => navigate('#forClients')}
-        />
-        <Tab
-          label="For Workers"
-          sx={{ color: 'primary.contrastText' }}
-          onClick={() => navigate('#forWorkers')}
-        />
-        <Tab
-          label="Join Our Family"
-          sx={{ color: 'primary.contrastText' }}
-          onClick={() => navigate('#joinOurFamily')}
-        />
+        <Link href="#about">
+          <Tab
+            label="About Us"
+            sx={{ color: 'primary.contrastText' }}
+          />
+        </Link>
+        <Link href="#forClients">
+          <Tab
+            label="For Clients"
+            sx={{ color: 'primary.contrastText' }}
+          />
+        </Link>
+        <Link href="#forWorkers">
+          <Tab
+            label="For Workers"
+            sx={{ color: 'primary.contrastText' }}
+          />
+        </Link>
+        <Link href="#joinOurFamily">
+          <Tab
+            label="Join Our Family"
+            sx={{ color: 'primary.contrastText' }}
+          />
+        </Link>
+        <Link href="/worker">
+          <Tab
+            label="Workers Page"
+            sx={{ color: 'primary.contrastText' }}
+          />
+        </Link>
       </Tabs>
     </Box>
   );

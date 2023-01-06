@@ -129,7 +129,7 @@ export const JobsTable: FC<{ specialty: string }> = ({ specialty }) => {
                       >
                         {col.format && typeof value === 'string'
                           ? col.format(value)
-                          : value}
+                          : value || 'No data'}
                       </TableCell>
                     );
                   })}

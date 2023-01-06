@@ -4,13 +4,14 @@ import { Container, Box, Typography } from '@mui/material';
 export const LandingSection: FC = () => (
   <Container
     component="section"
+    id="about"
     sx={{
       width: '100%',
       height: {
         xs: '80vh', sm: '80vh', md: '85vh', lg: '70vh',
       },
       transform: {
-        xs: 'translateY(8rem)', sm: 'translateY(8rem)', md: 'translateY(7rem)', lg: 'translateY(12rem)',
+        xs: 'translateY(8rem)', sm: 'translateY(8rem)', md: 'translateY12rem)', lg: 'translateY(14rem)',
       },
       display: 'flex',
       flexDirection: {

@@ -6,6 +6,7 @@ import { useForm, SubmitHandler, FieldValue } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 import { styles } from '../../pages/formsStyles';
 
 import { InputFiled } from '../InputField';
@@ -18,25 +19,38 @@ export const RegisterWorkerForm: FC = () => {
     ),
   });
 
+  const initValues = {
+    name: '',
+    email: '',
+    phone: '',
+    location: '',
+    gender: '',
+    specialty: '',
+    dateOfBirth: '',
+    yearsOfExperience: 0,
+  };
+
   const { control, handleSubmit, formState: { errors } } = useForm({
-    defaultValues: {
-      name: '',
-      email: '',
-      phone: '',
-      location: '',
-      gender: '',
-      specialty: '',
-      dateOfBirth: '',
-      yearsOfExperience: 0,
-    },
+    defaultValues: initValues,
     resolver: yupResolver(registerFormSchema),
   });
 
-  const onFormSubmit: SubmitHandler<FieldValue<any>> = (data: any) => mutate(data);
+  const onFormSubmit: SubmitHandler<FieldValue<any>> = (data: any, e) => {
+    mutate(data);
+    e?.target.reset();
+    Swal.fire({
+      position: 'bottom-end',
+      icon: 'success',
+      title: 'Logged in successfully!!',
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  };
 
   return (
     <Container
       maxWidth={false}
+      id="joinOurFamily"
       sx={{
         width: '100%',
         height: {

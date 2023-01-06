@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { FC, useState } from 'react';
+import { useNavigate } from 'react-router';
 import { useMutation } from '@tanstack/react-query';
 import {
   Container,
@@ -16,6 +17,7 @@ import {
   useForm, SubmitHandler, FieldValue,
 } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import Swal from 'sweetalert2';
 
 import { CustomStepper } from '../components/Stepper';
 import { InputFiled } from '../components/InputField';
@@ -25,11 +27,24 @@ import { styles } from './formsStyles';
 
 export const Signup: FC = () => {
   const [activeStep, setActiveStep] = useState(0);
+  const navigate = useNavigate();
 
   const { mutate } = useMutation({
     mutationFn: (inputs) => (
       axios.post('/auth/signup', inputs)
     ),
+    onSuccess: (data): void => {
+      if (data.status === 201) {
+        navigate('/login');
+        Swal.fire({
+          position: 'bottom-end',
+          icon: 'success',
+          title: 'Account have been created in successfully!!',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    },
   });
 
   const { control, handleSubmit, formState: { errors, dirtyFields } } = useForm({

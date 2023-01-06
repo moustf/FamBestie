@@ -15,6 +15,16 @@ export const JobsBoxDashboard: FC<{ data: JobDashboard[] }> = ({ data }) => (
   }}
   >
     {
+      data.length === 0 && (
+        <Typography
+          variant="h3"
+          component="h5"
+        >
+          No jobs for this worker!
+        </Typography>
+      )
+    }
+    {
       data.map((job: any) => (
         <Card sx={{
           width: '100%',

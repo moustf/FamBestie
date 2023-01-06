@@ -96,7 +96,7 @@ export const ProfileMenu :FC = () => {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem onClick={() => navigate(`/client/${userId}`)}>
+        <MenuItem onClick={() => (userId === 1 ? navigate('/dashboard') : navigate(`/client/${userId}`))}>
           <Avatar />
           {' '}
           Profile
