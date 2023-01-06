@@ -35,7 +35,7 @@ export const StatsCard: FC<{
           fontWeight: 500,
         }}
       >
-        {number}
+        {number || 0}
       </Typography>
     </Box>
     {icon}

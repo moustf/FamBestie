@@ -58,7 +58,7 @@ export const ClientMoneyCard: FC = () => {
         >
           <span style={{ fontSize: '1.5rem' }}>Total spent money: </span>
           <AttachMoneyIcon sx={{ color: 'green', fontSize: '2.5rem' }} />
-          {money}
+          {money || 0}
         </Typography>
       </Box>
     </Card>

@@ -233,6 +233,16 @@ export const WorkersDrawer: FC<{ id: number }> = ({ id }) => {
                 gap: '1rem',
               }}
               >
+                {
+                  data.data.data.user_workers.length === 0 && (
+                    <Typography
+                      variant="h3"
+                      component="h5"
+                    >
+                      No jobs for this worker!
+                    </Typography>
+                  )
+                }
                 {data.data.data.user_workers.map((userWorker: any) => (
                   <Card
                     key={userWorker.id}

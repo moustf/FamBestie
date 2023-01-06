@@ -37,6 +37,7 @@ export const RegisterWorkerForm: FC = () => {
   return (
     <Container
       maxWidth={false}
+      id="joinOurFamily"
       sx={{
         width: '100%',
         height: {

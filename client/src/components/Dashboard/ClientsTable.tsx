@@ -36,12 +36,6 @@ const columns: Column[] = [
     format: (value: string | Date) => `+97${value}`,
   },
   {
-    id: 'visibility',
-    label: 'State',
-    minWidth: 100,
-    align: 'center',
-  },
-  {
     id: 'joiningDate',
     label: 'Joining Date',
     minWidth: 150,

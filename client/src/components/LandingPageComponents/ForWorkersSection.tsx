@@ -15,6 +15,7 @@ const textArray = [
 export const ForWorkersSection: FC = () => (
   <Container
     component="section"
+    id="forWorkers"
     sx={{
       width: '100%',
       height: {

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { FC } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useForm, SubmitHandler, FieldValue } from 'react-hook-form';
 import { useMutation } from '@tanstack/react-query';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -14,6 +15,7 @@ import {
   Alert,
 } from '@mui/material';
 import LoginIcon from '@mui/icons-material/Login';
+import Swal from 'sweetalert2';
 
 import { SideImage } from '../components/SideImage';
 import { loginSchema } from '../utils/validation/loginData';
@@ -21,6 +23,7 @@ import { InputFiled } from '../components/InputField';
 import { styles } from './formsStyles';
 
 export const Login: FC = () => {
+  const navigate = useNavigate();
   // ? This is the mutation function which makes the backend fetch and saves the data in its cache.
   const {
     mutate,
@@ -28,6 +31,18 @@ export const Login: FC = () => {
     mutationFn: (inputs) => (
       axios.post('/auth/login', inputs)
     ),
+    onSuccess: (data): void => {
+      if (data.status === 200) {
+        navigate('/');
+        Swal.fire({
+          position: 'bottom-end',
+          icon: 'success',
+          title: 'Logged in successfully!!',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    },
   });
   // ? This is react form hook which handles the form data and hand it to react query.
   const { control, handleSubmit, formState: { errors } } = useForm({

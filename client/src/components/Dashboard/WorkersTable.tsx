@@ -179,7 +179,7 @@ export const WorkersTable: FC = () => {
                       <TableCell key={`${col.id}body`} align={col.align}>
                         {col.format && typeof value === 'string'
                           ? col.format(value)
-                          : value}
+                          : col.id === 'hiringDate' ? 'Not employed' : value}
                       </TableCell>
                     );
                   })}
