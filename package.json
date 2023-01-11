@@ -18,7 +18,7 @@
     "dbBuildProd": "cross-env NODE_ENV=production ts-node ./server/database/build.ts",
     "dbSeedProd": "cross-env NODE_ENV=production ts-node ./server/database/seed.ts",
     "prepare": "husky install",
-    "postBuild": "npm run build && cd client && npm i && npm run build && cd .. && npm start"
+    "postBuild": "npm run build && cd client && npm run build && cd .. && npm start"
   },
   "repository": {
     "type": "git",
