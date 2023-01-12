@@ -50,7 +50,7 @@ const App: FC = () => {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <LandingPage id={userData.id} />,
+      element: <LandingPage id={userData?.id} />,
     },
     {
       path: '/login',
@@ -92,7 +92,7 @@ const App: FC = () => {
     },
     {
       path: '/worker',
-      element: <Worker id={userData.id} />,
+      element: <Worker id={userData?.id} />,
     },
   ]);
 
