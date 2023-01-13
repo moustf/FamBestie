@@ -13,7 +13,11 @@ import { setUserData } from '../features/auth/authSlice';
 export const LandingPage: FC<{ id: number }> = ({ id }) => {
   const dispatch = useAppDispatch();
   useEffect(() => {
-    dispatch(setUserData());
+    const getData = async (): Promise<any> => {
+      const data = await dispatch(setUserData());
+      return data;
+    };
+    console.log(getData());
   }, []);
 
   return (
