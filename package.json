@@ -4,9 +4,6 @@
   "version": "1.0.0",
   "description": "The project is a blog post platform. This project is for coding a template from figma community.",
   "main": "index.js",
-  "engines": {
-    "node": "16.17.0"
-  },
   "scripts": {
     "start": "cross-env NODE_ENV=production node dist/server/index.js",
     "dev": "cross-env NODE_ENV=development nodemon server/index.ts",
@@ -22,6 +19,9 @@
     "dbSeedProd": "cross-env NODE_ENV=production ts-node ./server/database/seed.ts",
     "prepare": "husky install",
     "postBuild": "npm run build && cd client && npm run build && cd .. && npm start"
+  },
+  "engines": {
+    "node": "16.17.0"
   },
   "repository": {
     "type": "git",
