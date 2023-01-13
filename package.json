@@ -20,6 +20,9 @@
     "prepare": "husky install",
     "heroku-postbuild": "npm run build && cd client && npm i && npm run build"
   },
+  "engines": {
+    "node": "16.17.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/moustf/FamBestie.git"
