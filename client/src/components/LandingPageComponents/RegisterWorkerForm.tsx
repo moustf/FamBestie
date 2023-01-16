@@ -15,7 +15,7 @@ import { registerFormSchema } from '../../utils/validation/registerForm';
 export const RegisterWorkerForm: FC = () => {
   const { mutate } = useMutation({
     mutationFn: (inputs) => (
-      axios.post('/worker/register', inputs)
+      axios.post('/api/v1/worker/register', inputs)
     ),
   });
 

@@ -14,14 +14,14 @@ export const FiltersSection: FC<{ offset: number, setWorkers: Dispatch<SetStateA
   const { data } = useQuery({
     queryKey: ['getHiredWorkersCount'],
     queryFn: async () => (
-      axios.get('/worker/hired/count')
+      axios.get('/api/v1/worker/hired/count')
     ),
   });
 
   useQuery({
     queryKey: [`getWorkersAllData${offset}`],
     queryFn: async () => (
-      axios.get(`/worker?name=${nameState}&specialty=${specialtyState}&offset=${offset}`)
+      axios.get(`/api/v1/worker?name=${nameState}&specialty=${specialtyState}&offset=${offset}`)
     ),
     onSuccess: (workers: AxiosResponse<any>) => setWorkers(workers.data.data),
   });
@@ -29,7 +29,7 @@ export const FiltersSection: FC<{ offset: number, setWorkers: Dispatch<SetStateA
   // ? Creating a function to request the data when the user search by name.
   const { mutate: mutateName } = useMutation({
     mutationFn: async (name: string) => (
-      axios.get(`/worker?name=${name}&specialty=${specialtyState}&offset=${offset}`)
+      axios.get(`/api/v1/worker?name=${name}&specialty=${specialtyState}&offset=${offset}`)
     ),
     onSuccess: (workersResponse) => setWorkers(workersResponse.data.data),
   });
@@ -42,7 +42,7 @@ export const FiltersSection: FC<{ offset: number, setWorkers: Dispatch<SetStateA
   // ? Creating a function to request the data when the user filters by specialty.
   const { mutate: mutateSpecialty } = useMutation({
     mutationFn: async (specialty: string) => (
-      axios.get(`/worker?specialty=${specialty}&name=${nameState}&offset=${offset}`)
+      axios.get(`/api/v1/worker?specialty=${specialty}&name=${nameState}&offset=${offset}`)
     ),
     onSuccess: (workersResponse) => setWorkers(workersResponse.data.data),
   });

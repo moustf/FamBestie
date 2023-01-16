@@ -10,7 +10,7 @@ export const WorkersCardsSection: FC = () => {
   const { data } = useQuery({
     queryKey: ['getAllWorkersForClient'],
     queryFn: async () => (
-      axios.get('/client/workers')
+      axios.get('/api/v1/client/workers')
     ),
   });
 

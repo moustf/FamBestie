@@ -73,7 +73,7 @@ export const ClientsTable: FC = () => {
   } = useQuery({
     queryKey: ['getAllClientsForAdmin'],
     queryFn: async () => (
-      axios.get('/admin/clients')
+      axios.get('/api/v1/admin/clients')
     ),
   });
 

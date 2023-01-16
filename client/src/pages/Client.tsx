@@ -17,7 +17,7 @@ export const Client: FC = () => {
   const { data } = useQuery({
     queryKey: [`getClientInfo${userId}`],
     queryFn: async () => (
-      axios.get('/client/info')
+      axios.get('/api/v1/client/info')
     ),
   });
 

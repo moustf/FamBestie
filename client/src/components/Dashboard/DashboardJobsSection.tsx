@@ -15,7 +15,7 @@ export const DashboardJobsSection: FC = () => {
   const { data, isLoading, isError } = useQuery({
     queryKey: ['getAllJobsForAdmin'],
     queryFn: async () => (
-      axios.get('/admin/jobs')
+      axios.get('/api/v1/admin/jobs')
     ),
   });
 

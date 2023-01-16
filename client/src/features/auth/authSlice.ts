@@ -52,12 +52,12 @@ export const selectError = createSelector(
 // ? Thunk function and its fetch helper function START.
 
 const fetchUserData = async (): Promise<AxiosResponse<UserData, unknown>> => (
-  axios.get('/auth/user')
+  axios.get('/api/v1/auth/user')
 );
 export const setUserData = createAsyncThunk('auth/setUserData', fetchUserData);
 
 const logout = async (): Promise<AxiosResponse<UserData, unknown>> => (
-  axios.post('/auth/logout')
+  axios.post('/api/v1/auth/logout')
 );
 
 export const clearUserData = createAsyncThunk('auth/clearUserData', logout);

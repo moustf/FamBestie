@@ -18,7 +18,7 @@ export const ClientsDrawer: FC<{ id: number }> = ({ id }) => {
   } = useQuery({
     queryKey: [`getClientById${id}`],
     queryFn: async () => (
-      axios.get(`/admin/client/${id}`)
+      axios.get(`/api/v1/admin/client/${id}`)
     ),
   });
 

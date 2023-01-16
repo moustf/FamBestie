@@ -29,7 +29,7 @@ export const Login: FC = () => {
     mutate,
   } = useMutation({
     mutationFn: (inputs) => (
-      axios.post('/auth/login', inputs)
+      axios.post('/api/v1/auth/login', inputs)
     ),
     onSuccess: (data): void => {
       if (data.status === 200) {

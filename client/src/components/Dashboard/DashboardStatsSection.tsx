@@ -23,7 +23,7 @@ export const DashboardStatsSection: FC = () => {
     queryKey: ['fetchTotalStatistics'],
     queryFn: async () => (
       axios
-        .get('/admin/statistics')
+        .get('/api/v1/admin/statistics')
     ),
   });
 
