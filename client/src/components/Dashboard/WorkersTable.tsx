@@ -114,7 +114,7 @@ export const WorkersTable: FC = () => {
   } = useQuery({
     queryKey: ['getAllWorkersForAdmin'],
     queryFn: async () => (
-      axios.get('/admin/workers')
+      axios.get('/api/v1/admin/workers')
     ),
   });
 

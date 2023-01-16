@@ -65,7 +65,7 @@ export const WorkersDrawer: FC<{ id: number }> = ({ id }) => {
   } = useQuery({
     queryKey: [`getWorkerById${id}`],
     queryFn: async () => (
-      axios.get(`/admin/worker/${id}`)
+      axios.get(`/api/v1/admin/worker/${id}`)
     ),
   });
 

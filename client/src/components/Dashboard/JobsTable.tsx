@@ -54,7 +54,7 @@ export const JobsTable: FC<{ specialty: string }> = ({ specialty }) => {
   const { data, isLoading, isError } = useQuery({
     queryKey: [`getJobsBySpecialty${specialty}`],
     queryFn: async () => (
-      axios.get(`/admin/jobs/${specialty}`)
+      axios.get(`/api/v1/admin/jobs/${specialty}`)
     ),
   });
 

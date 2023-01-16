@@ -11,7 +11,7 @@ export const ClientMoneyCard: FC = () => {
   const { data } = useQuery({
     queryKey: ['getClientsTotalMoneySpent'],
     queryFn: async () => (
-      axios.get('/client/money')
+      axios.get('/api/v1/client/money')
     ),
   });
 

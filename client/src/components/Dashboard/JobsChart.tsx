@@ -13,7 +13,7 @@ export const JobsChart: FC = () => {
   const { data } = useQuery({
     queryKey: ['jobsBySpecialty'],
     queryFn: async () => (
-      axios.get('/admin/count/jobs')
+      axios.get('/api/v1/admin/count/jobs')
     ),
   });
 
